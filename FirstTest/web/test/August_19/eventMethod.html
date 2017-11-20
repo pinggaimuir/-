@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>event事件</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+//            $("button").mouseenter(function(){
+//               $(this).hide();
+//            });
+//            $("#btn1").bind("click",clickalert1);
+//            $("#btn1").bind("click",clickalert2);
+//            $("#btn1").unbind("click",clickalert1);
+            $("#btn1").on("click",clickalert1);
+            $("#btn1").on("click",clickalert2);
+            $("#btn1").off("click",clickalert1);
+        });
+        function clickalert1(e){
+            console.log("我到这里了！")
+        }
+        function clickalert2(e){
+            console.log("我到这里了！")
+        }
+    </script>
+</head>
+<body>
+    <button>点我我就消失给你看</button>
+    <button id="btn1">来点我啊</button>
+</body>
+</html>

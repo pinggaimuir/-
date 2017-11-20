@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>使用Document方法</title>
+<style type="text/css">
+body{font-size:14px;
+     line-height:30px;
+	 }
+input{margin:1px;
+      width:90px;
+	  font-size:12px;
+	  padding:0;
+	  }
+#node{
+	width:100px;
+	font-size:24px;
+	font-weight:bold;
+	float: left;
+	}
+</style>
+<script type="text/javascript">
+  function changeDiv(){
+  	document.getElementById("node").innerHTML = "达内";
+  }
+  function allInput(){
+    //获取所有的input标记
+  	var allIp = document.getElementsByTagName("input");
+	//保存input标记中所有的内容值
+	var vstr="";
+	//获取所有input标记中的value值,并拼接到vstr
+	for(var i = 0;i<allIp.length;i++){
+		vstr += allIp[i].value+"<br/>";//vstr = vstr+allIp[i].value;
+	}
+	//根据id获取id='s'标记
+	var ps = document.getElementById("s");
+	//将得到的结果vstr，在id为s的p标记中显示出来
+	ps.innerHTML=vstr;
+	//document.getElementById("s").innerHTML = vstr;
+  }
+  function sName(){
+  	//1、获取名字为season的所有标记
+	var allName = document.getElementsByName("season");
+	//2、定义变量vstr,用来保存所有名称为season的所有标记的值
+	var vstr="";
+	//3、循环获取每一个value
+	for(var i = 0;i<allName.length;i++){
+		vstr+= allName[i].value+"<br/>";
+	}
+	//4、获取id为s的标记，并将vstr显示在该标记中
+	document.getElementById("s").innerHTML = vstr;
+  }
+</script>
+</head>
+
+<body>
+<div id="node">新浪</div>
+<input name="b1" type="button" value="改变层内容" onclick="changeDiv()" /><br />
+<br /><input name="season" type="text" value="春" />
+<input name="season" type="text" value="夏" />
+<input name="season" type="text" value="秋" />
+<input name="season" type="text" value="冬" />
+<br /><input name="b2" type="button" value="显示input内容" onclick="allInput()" />
+<input name="b3" type="button" value="显示season内容" onclick="sName()" />
+<p id="s"></p>
+</body>
+</html>

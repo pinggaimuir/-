@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>使用display属性设置元素是否可见</title>
+<script type="text/javascript">
+ function doDisplay(id){
+ 	var imgB2 = document.getElementById(id);
+	//alert(typeof(imgB2.style.display));
+	/*if(imgB2.style.display=="block"||imgB2.style.display==""){
+		imgB2.style.display = "none";
+	}else if(imgB2.style.display=="none"){
+		imgB2.style.display = "block";
+	} */
+	/*if(imgB2.style.display=="block"||imgB2.style.display==""){
+		imgB2.style.display = "none";
+	}else{
+		imgB2.style.display = "block";
+	}*/
+	if(imgB2.style.display=="none"){
+		imgB2.style.display = "block";
+	}else{
+		imgB2.style.display = "none";
+	}
+ }
+</script>
+</head>
+
+<body>
+<img src="images/book1.jpg" alt="book1" id="b1" />
+<img src="images/book2.jpg" alt="book2" id="b2"/>
+<img src="images/book3.jpg" alt="book3" id="b3" />
+<input name="btn2" type="button" value="display隐藏图b2" onclick="doDisplay('b2')" />
+</body>
+</html>

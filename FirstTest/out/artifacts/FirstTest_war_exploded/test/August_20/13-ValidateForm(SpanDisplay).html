@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>表单页面</title>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+		<script type="text/javascript" src="13-ValidateForm(SpanDisplay).js"></script>
+	</head>
+	<body>
+		<form action="http://localhost:8080" method="POST" onsubmit="return checkData()">
+			<table border="1px" align="center" cellpadding="10px" cellspacing="0px" borderColor="red" bgcolor="pink">
+				<caption><font color="red" size="6">注册表单</font></caption>
+				<input type="hidden" name="id" value="9527"/>
+				<tr>
+					<td>用户名:</td>
+					<td>
+						<input type="text" name="username" onblur="checkNull('username','用户名不能为空')" />
+						<span id="username_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>密码:</td>
+					<td>
+						<input type="password" name="password" onblur="checkNull('password','密码不能为空')"/>
+						<span id="password_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>确认密码:</td>
+					<td>
+						<input type="password" name="password2" onblur="checkPassword2()"/>
+						<span id="password2_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>性别：</td>
+					<td>
+						<input type="radio" name="gender" value="男"/>男
+						<input type="radio" name="gender" value="女"/>女
+						<span id="gender_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>昵称：</td>
+					<td>
+						<input type="text" name="nickname" onblur="checkNull('nickname','昵称不能为空')"/>
+						<span id="nickname_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>邮箱：</td>
+					<td>
+						<input type="text" name="email" onblur="checkEmail()"/>
+						<span id="email_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>爱好：</td>
+					<td>
+						<input type="checkbox" name="like" value="lq"/>篮球
+						<input type="checkbox" name="like" value="zq"/>足球
+						<input type="checkbox" name="like" value="qq"/>铅球
+						<input type="checkbox" name="like" value="blq"/>玻璃球
+						<span id="like_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>客户类型：</td>
+					<td>
+						<select name="type">
+							<option value="pm">平民</option>
+							<option value="sxdy">少先队员</option>
+							<option value="gqty">共青团员</option>
+							<option value="ybdy">预备党员</option>
+							<option value="zsdy">正式党员</option>
+						</select>
+						<span id="type_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>头像：</td>
+					<td>
+						<input type="file" name="img"/>
+						<span id="img_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>描述信息：</td>
+					<td>
+						<textarea id="desc" rows="5" cols="45" name="desc" onfocus="mouseIn()" onblur="mouseOut()">请输入描述信息~！</textarea>
+						<span id="desc_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>验证码：</td>
+					<td>
+						<input type="text" name="valistr" onblur="checkNull('valistr','验证码不能为空')"/>
+						<img src="1.jpg" width="100px" height="20px"/>
+						<span id="valistr_msg"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right">
+						<input type="submit" value="提 交"/>
+						<input type="reset" value="重 置"/>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

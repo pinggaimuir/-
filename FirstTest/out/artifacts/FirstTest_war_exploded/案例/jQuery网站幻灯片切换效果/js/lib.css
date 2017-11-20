@@ -1,0 +1,33 @@
+body {
+	font-family:"HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #FFF;
+	font-size: 12px;
+	background: #000;
+}
+
+h1 {
+	font-size: 52px;
+	text-align: center;
+}
+
+h1,h2,h3,h4 {
+	font-weight: 100;
+}
+
+#photo_container {
+	width: 960px;
+	height: 400px;
+	margin: auto;
+	background-color: #000;
+}
+
+p {
+	text-align: center;
+}
+
+/*定义文字样式*/
+A {FONT-SIZE: 12px; COLOR: #000;}
+A:link {COLOR: #2d8931; TEXT-DECORATION: none;}
+A:visited {COLOR: #333; TEXT-DECORATION: none;}
+A:hover {COLOR: #333; TEXT-DECORATION:underline;}
+A:active {COLOR: #333; TEXT-DECORATION: none;}

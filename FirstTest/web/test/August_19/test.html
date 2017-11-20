@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日常练习</title>
+</head>
+    <script type="text/javascript" >
+        /*var c="abc";
+        var bool=false;
+        var num=100+c;
+        var arr=[1,"abc",true];
+      //  alert(typeof(100+undefined));
+       delete arr[1];
+        alert(typeof arr[2]);*/
+        /*给参数设置默认值*/
+//        function fn(name,nickname){
+//            name=name||"赵云";
+//            alert(name);
+//        }
+//        var fn1=fn;
+//        function fn7(){
+//           return  fn1();
+//        }
+//        fn7();
+        var arr=[3,2,5,"j.dgdf","ggg"];
+//alert(arr);
+        ////        alert(arr.push("aa"));
+        ////        alert(arr);
+//        arr.sort(function(a,b){
+//           return  a-b;
+//        });
+        //删除数组中的元素，  并且添加新的元素
+       /* alert(arr.splice(1,2,"fa","efgsd","dgfd"));
+        alert(arr);*/
+        //获得当前时间
+//        var time1=new Date();
+//        alert(time1.toLocaleString());
+     function Person(n,a){
+         this.name=n;
+         this.age=a;
+         this.run=function(){
+          alert(this.name+"   ------" +this.age);
+         }
+     }
+        var p1=new Person("gao",23);
+        for(x in p1){
+            //alert(x);
+            alert(p1[x])
+        }
+    </script>
+<body>
+
+</body>
+</html>

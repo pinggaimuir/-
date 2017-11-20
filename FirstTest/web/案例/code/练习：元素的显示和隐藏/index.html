@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>显示和隐藏图片</title>
+<script type="text/javascript">
+function visibilityHidden(id){
+	document.getElementById(id).style.visibility = "hidden";
+}
+function displayNone(id){
+	document.getElementById(id).style.display = "none";
+}
+//作业：
+</script>
+</head>
+<body>
+<img src="images/book1.jpg" alt="book1" id="b1" />
+<img src="images/book2.jpg" alt="book2" id="b2" />
+<img src="images/book3.jpg" alt="book3" id="b3" /><br />
+<input name="btn1" type="button" value="visibility隐藏图b2" onclick="visibilityHidden('b2')" />
+<input name="btn2" type="button" value="display隐藏图b2" onclick="displayNone('b2')" />
+</body>
+</html>

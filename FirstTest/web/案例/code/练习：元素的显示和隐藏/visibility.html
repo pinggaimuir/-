@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>使用visibility属性设置元素是否可见</title>
+<script type="text/javascript">
+function vsChange(id){
+	//1、根据获取被显示隐藏的标记
+	var imgB = document.getElementById(id);
+	//2、获取id为btn1的button按钮的对象
+	var btn = document.getElementById("btn1");
+	//3、判断该节点的visibility属性
+	if(imgB.style.visibility==""||imgB.style.visibility=="visible"){//本来状态是显示的
+		//4、改变节点中value的值
+		btn.value = "visibility显示图b2";
+		imgB.style.visibility="hidden";
+	}else{
+		imgB.style.visibility="visible";
+		btn.value = "visibility隐藏图b2";
+	}
+}
+</script>
+</head>
+
+<body>
+<img src="images/book1.jpg" alt="book1" id="b1" />
+<img src="images/book2.jpg" alt="book2" id="b2" />
+<img src="images/book3.jpg" alt="book3" id="b3" />
+<input id="btn1" type="button" value="visibility隐藏图b2" onclick="vsChange('b2')" />
+<input id="btn2" type="button" value="换图图b2" onclick="" />
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算平方</title>
+    <script type="text/javascript" language="JavaScript">
+     function getSquare(){
+        var str=document.getElementById("textData").value;
+        if(isNaN(str)){
+            alert("请输入一个数字！");
+        }else{
+            var data=parseFloat(str);
+            var result=data*data;
+            alert("结果为："+result);
+        }
+    }
+        function strReplace(){
+            var str1=document.getElementById("textString").value;
+            var index=0;
+            while(index>-1){
+                index=str1.indexOf("js",index++);
+                str1=str1.replace("js","*");
+            }
+            document.getElementById("textString").value=str1;
+        }
+        function strReplace1(){
+            var str2=document.getElementById("textString").value;
+            var result=str2.match(/js/gi);
+            document.getElementById("textString").value=str2.replace(/js/gi,"*");
+            alert("共替换了"+result.length+"处。");
+        }
+        function strReverse(){
+            var array=document.getElementById("textReverse").value.split(",");
+            array.reverse();
+            document.getElementById("textReverse").value=array;
+            alert(array.toString());
+        }
+        function strSort(){
+            var array=document.getElementById("textSort").value.split(",");
+            array.sort();
+            document.getElementById("textSort").value=array;
+        }
+        function sortFun(a,b){
+            return a-b;
+        }
+        function random(){
+            var min=parseInt(document.getElementById("min").value);
+            var max=parseInt(document.getElementById("max").value);
+            var r=Math.random();
+            var num=Math.floor(r*(max-min))+min;
+            alert(num);
+        }
+     /*
+        function voidMethod(){
+            alert(arguments.length);
+            alert(arguments[1]);
+        }
+        var add=new Function("x","y","return(x+y);");
+        alert(add(2,3));
+        alert(add);0l
+        var add=function(x,y){
+            return x+y;
+        }
+        alert(add(4,5));
+        var str5="alert('2+3');";
+       eval(str5);
+     function newwin(){
+        var config="toolbar=yes,location=no,width=200,height=300";
+        var openurl="http://www.tmooc.cn";
+        var newWin=window.open(openurl,"mywin",config);
+        setInterval(newwin,3000);
+     }*/
+    document.getElementById("a1").href="http://www.tmooc.cn";
+
+</script>
+</head>
+<body >
+    <input type="text" id="textData"/><input type="button" value="计算平方" onclick="getSquare();"/><br/>
+    <input type="text" id="textString"/><input type="button" value="替换(js)" onclick="strReplace1();"><br/><br/>
+    <input type="text" id="textReverse"/><input type="button" value="反转" onclick="strReverse()"/>
+    <input type="text" id="textSort"/><input type="button" value="排序" onclick="strSort()"/><br/><br/>
+    <input type="text" id="min"/><br/>
+    <input type="text" id="max"/><br/>
+    <input type="button" value="生成随机数" onclick="voidMethod(10,20)"/>
+<a href="http://www.baidu.com" id="a1"></a>
+</body>
+</html>

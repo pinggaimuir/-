@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单选框计算时间段</title>
+    <script type="text/javascript" language="javascript">
+        function getDateRange(days){
+            var time=new Date();//结束时间
+            var endstr=time.toLocaleDateString();//结束时间的字符串
+            time.setDate(time.getDate()-days+1);
+            var s="开始日期为："+time.toLocaleDateString()+"\n";
+            s+="结束日期为："+endstr;
+            alert(s);
+        }
+        function Method(){
+            if(arguments.length==1){
+                var arg1=parseInt(arguments[0]);
+                alert(arg1+"的平方="+arg1*arg1);
+            }else{
+                var arg2=parseInt(arguments[0]);
+                var arg3=parseInt(arguments[1]);
+                alert(arg2+"+"+arg3+"="+(arg2+arg3));
+            }
+        }
+        //排序函数
+        function sort(){
+            var str=document.getElementById("paixu").value;
+            var arr=str.split(",");
+            //匿名函数
+           // arr.sort(function(a,b){return a-b;});
+            arr.sort(new Function("a","b","return a-b;"));
+            alert(arr);
+        }
+        <!--简单计算器-->
+        function simpleCal(str2){
+            if(str2=="="){
+                var result=eval(document.getElementById("text").value);
+                document.getElementById("text").value=result;
+            }else{
+                document.getElementById("text").value+=str2;
+            }
+        }
+        function delFun(){
+            var url="http://www.4399.com";
+            var config="width=500,height=300,toolBar=yes,location=no";
+            var result=confirm("确定跳转吗？");
+            if(result){
+                open(url,"4399",config);
+            }else{
+
+            }
+        }
+        //定时弹出
+        var openTime;
+        function openWindow(){
+            var openFun=function(){
+                open("http://www.4399.com");
+            }
+             openTime=setTimeout(openFun,5000);
+        }
+        function cancelOpen(){
+            clearTimeout(openTime);
+        }
+    </script>
+</head>
+<body>
+    <!--计算时间段-->
+    <input type="radio"  name="d" onclick="getDateRange(3);"/><lable for="three">三天内</lable>
+    <input type="radio"  neme="d" onclick="getDateRange(7);"/><lable for="seven">七天内</lable>
+    <!--方法的重载-->
+    <input type="button" id="btn1" value="计算平方" onclick="Method(12);"/>
+    <input type="button" id="btn2" value="计算和" onclick="Method(12,12);"/><br/>
+    <!--匿名排序函数-->
+    <input type="text" id="paixu" /><input type="button" value="排序" onclick="sort();"/>
+    <br/><br/>
+    <!--简单计算器-->
+    <input type="button" value="1" onclick="simpleCal(this.value)">
+    <input type="button" value="2" onclick="simpleCal(this.value)">
+    <input type="button" value="3" onclick="simpleCa l(this.value)">
+    <input type="button" value="4" onclick="simpleCal(this.value)">
+    <input type="button" value="+" onclick="simpleCal(this.value)">
+    <input type="button" value="-"  onclick="simpleCal(this.value)">
+    <input type="button" value="=" onclick="simpleCal(this.value)"><br>
+    <input type="text" id="text"/>
+    <!--取消事件-->
+    <input type="button" value="4399" onclick="return delFun();"/><br/><br/>
+    <input type="button" value="5s后弹出4399" onclick="openWindow();"/>
+    如果想取消请点击<a href="javascript:cancelOpen();">这里</a>
+</body>
+</html>

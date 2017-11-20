@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createTable</title>
+</head>
+<script type="text/javascript">
+    function createT(){
+        var tableNode=document.createElement("table");
+        tableNode.style.border="1px solid #000";
+        tableNode.style.background="darkcyan";
+        tableNode.style.borderCollapse="collapse";
+        var hang=parseInt(document.getElementsByTagName("input")[0].value)||5;
+        var lie=parseInt(document.getElementsByTagName("input")[1].value)||5;
+        for(var i=0;i<hang;i++){
+            var trNode=document.createElement("tr");
+
+            for(var j=0;j<lie;j++){
+              // var trCount=tableNode.getElementsByName("tr")[i];
+                var tdNode=document.createElement("td");
+                tdNode.style.border="1px solid #000";
+                tdNode.innerHTML="第"+(i+1)+"行，第"+(j+1)+"列";
+                trNode.appendChild(tdNode);
+            }
+            tableNode.appendChild(trNode);
+        }
+        document.getElementsByTagName("body")[0].appendChild(tableNode);
+    }
+</script>
+<body>
+    行数：<input type="text" /><br/>
+    列数：<input type="text" /><br/>
+    <button  onclick="createT();">创建表格(行列用户输入)</button>
+</body>
+</html>

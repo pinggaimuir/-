@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+    <link href="nav.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="container">
+        <div id="globallink">
+        <ul>
+            <li class="main"><h5>进销存管理系统</h5><!--1新闻资讯-->
+                <ul class="navin">
+                <li><asp:HyperLink ID="HyperLink1" runat="server"  NavigateUrl="~/Products/NewsProducts.aspx">最新商品</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink2" runat="server"  NavigateUrl="~/Products/ShowProductsList.aspx">物品搜索</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink3" runat="server"  NavigateUrl="~/Notice/NoticeList.aspx">系统通知</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink4" runat="server"  NavigateUrl="~/Customer/My_ServiceInfoList.aspx">服务中心</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink5" runat="server"  NavigateUrl="~/User/SysUser_Reset_PassWord.aspx">密码设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink6" runat="server"  NavigateUrl="~/Sales/FindSalesOrder_DispatchState.aspx">发货查询</asp:HyperLink></li>
+                </ul> 
+            </li>    
+            <li class="main"><h5>系统采购开单</h5><!--2采购开单-->
+                <ul>
+				<li><asp:HyperLink ID="HyperLink7" runat="server"  NavigateUrl="~/Buy/BuyOrder_Add.aspx">采购订单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink8" runat="server"  NavigateUrl="~/Buy/BuyReceipt_Add.aspx">采购收货开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink9" runat="server"  NavigateUrl="~/Buy/BuyReturn_Add.aspx">采购退货</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink10" runat="server"  NavigateUrl="~/Buy/BuyPay_Add.aspx">采购付款</asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="main"><h5>系统销售开单</h5><!--3销售开单-->
+                <ul>
+                <li><asp:HyperLink ID="HyperLink11" runat="server"  NavigateUrl="~/Sales/MySalesOrder.aspx">销售订单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink12" runat="server"  NavigateUrl="~/Sales/MyEditSalesOrder_PayInfo.aspx">填写销售订单付款</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink13" runat="server"  NavigateUrl="~/Sales/MySalesTotal.aspx">我的销售统计</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink14" runat="server"  NavigateUrl="~/Sales/SalesOut_Add.aspx">销售开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink15" runat="server"  NavigateUrl="~/Sales/SalesReturn_Add.aspx">销售退货开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink16" runat="server"  NavigateUrl="~/Sales/SalesDispatch_Add.aspx">销售发货开单</asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="main"><h5>系统库存开单</h5><!--4库存开单-->
+                <ul>
+                <li><asp:HyperLink ID="HyperLink17" runat="server"  NavigateUrl="~/Stock/AppendStock_Add.aspx">物品入库开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink18" runat="server"  NavigateUrl="~/Stock/OutStock_Add.aspx">物品出库开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink19" runat="server"  NavigateUrl="~/Stock/TransferringOrder_Add.aspx">仓库调拨开单</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink20" runat="server"  NavigateUrl="~/Stock/Inventory_Add.aspx">仓库盘点开单</asp:HyperLink></li>
+                </ul>
+            </li> 
+            <li class="main"><h5>系统设置</h5><!--5系统设置-->
+                <ul>
+                <li><asp:HyperLink ID="HyperLink21" runat="server"  NavigateUrl="~/User/SysUserSearch.aspx">管理用户</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink22" runat="server"  NavigateUrl="~/Authority/GroupManager.aspx">管理群组</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink23" runat="server"  NavigateUrl="~/UserType/SysUserTypeManager.aspx">用户类型设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink24" runat="server"  NavigateUrl="~/Products/SysProductsTypeManager.aspx">商品类型</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink25" runat="server"  NavigateUrl="~/Products/SysProductsBrandManager.aspx">商品品牌</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink26" runat="server"  NavigateUrl="~/Products/SysProductsList.aspx">商品资料</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink30" runat="server"  NavigateUrl="~/Supplier/SysSupplierManager.aspx">供应商设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink31" runat="server"  NavigateUrl="~/Shop/SysShopManager.aspx">网店管理</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink32" runat="server"  NavigateUrl="~/Stock/DetopManager.aspx">仓库设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink33" runat="server"  NavigateUrl="~/System/System_Log.aspx">系统日志</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink34" runat="server"  NavigateUrl="~/Customer/SysSalesPlatform.aspx">销售平台管理</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink35" runat="server"  NavigateUrl="~/Notice/Notice_Add.aspx">通知公告设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink36" runat="server"  NavigateUrl="~/Delivery/SysDeliverManager.aspx">配送方式设置</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink37" runat="server"  NavigateUrl="~/Customer/SysServiceType.aspx">服务类型</asp:HyperLink></li>
+                <li><asp:HyperLink ID="HyperLink38" runat="server"  NavigateUrl="~/Stock/StoreHouseManager.aspx">库房管理</asp:HyperLink></li>
+                </ul>
+            </li>
+            <li class="main"><h5>系统流程管理</h5><!--6流程管理-->
+                <ul>
+                  <li><asp:HyperLink ID="HyperLink39" runat="server"  NavigateUrl="~/Buy/Manager_BuyOrder.aspx">管理采购订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink40" runat="server"  NavigateUrl="~/Buy/Manager_BuyReceipOrder.aspx">管理采购收货订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink41" runat="server"  NavigateUrl="~/Buy/Manager_BuyPayOrder.aspx">管理采购付款订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink42" runat="server"  NavigateUrl="~/Buy/Manager_BuyReturnOrder.aspx">管理采购退货订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink43" runat="server"  NavigateUrl="~/Sales/Manager_SalesOrderList.aspx">管理销售订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink44" runat="server"  NavigateUrl="~/Sales/ManagerAuditingSalesOrder.aspx">审核销售订单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink45" runat="server"  NavigateUrl="~/Sales/Manager_SalesOutOrder.aspx">管理销售开单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink46" runat="server"  NavigateUrl="~/Sales/ManagerAuditingSalesOut.aspx">审核销售开单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink47" runat="server"  NavigateUrl="~/Sales/Manager_SalesReturnList.aspx">管理销售退货</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink48" runat="server"  NavigateUrl="~/Sales/Manager_SalesDispatchOrder.aspx">销售发货管理</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink49" runat="server"  NavigateUrl="~/Stock/Manager_AppendStockOrder.aspx">管理入库单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink50" runat="server"  NavigateUrl="~/Stock/Manager_OutStockOrder.aspx">管理出库单</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink51" runat="server"  NavigateUrl="~/Stock/Manager_InventoryOrder.aspx">管理库存盘点</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink52" runat="server"  NavigateUrl="~/Stock/Manager_TransferringOrder.aspx">管理库存调拨</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink53" runat="server"  NavigateUrl="~/Products/ProductsNoPhoto.aspx">商品拍照</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink54" runat="server"  NavigateUrl="~/Stock/Stock_ProductsView.aspx">商品分布情况</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink55" runat="server"  NavigateUrl="~/Sales/MySalesDispatch.aspx">配送发货</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink56" runat="server"  NavigateUrl="~/Customer/Manager_ServiceInfoList.aspx">管理问题件</asp:HyperLink></li>
+                  <li><asp:HyperLink ID="HyperLink57" runat="server"  NavigateUrl="~/Stock/Stock_StockView.aspx">仓库库存情况</asp:HyperLink></li>
+                </ul>
+            </li>
+        </ul>
+        </div>
+        <div id="split" onclick="switchSysBar();" style="cursor:pointer">
+        </div>
+        <div id="middle">
+            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+            </asp:contentplaceholder>
+        </div>
+		</div>
+    </form>
+    <script type="text/javascript" src="JS/jquery-1.3.1.js"></script>
+	<script language="javascript" type="text/javascript" src="js/main.js"></script>    
+</body>
+</html>

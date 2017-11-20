@@ -1,0 +1,31 @@
+﻿body{
+	border:0px;
+	padding:0px;
+	margin:0px auto;
+	font:12px Tahoma;	
+}
+div,ul,li,dt,dl {
+	float:left;
+	margin:0px auto;
+  padding:0px;
+	}
+li{
+	list-style:none;	
+	}
+	a:link   {color:#333333;text-decoration: none;}   
+  a:visited   {color:#333333;text-decoration: none;}   
+  a:active   {color:#333333;text-decoration: none;}   
+  a:hover   {color:#ff7300;} 	
+
+input {
+	border:1px #333333 solid;
+	margin:0px;
+	padding:0px;
+	}
+	
+	a img{
+		border:0px;
+		}
+
+.red {color:red;font-weight: bold;text-align:left;}		
+.b {font-weight:bold;}

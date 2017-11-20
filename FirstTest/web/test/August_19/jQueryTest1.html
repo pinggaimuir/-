@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ceshi</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function(){
+           // alert("文档加载完毕！");
+            $("p").click(function(){
+                $(this).hide();
+            });
+            $("button").click(function(){
+                $(".pid").text("元素被修改了！");
+            });
+        });
+    </script>
+</head>
+<body>
+        <p>hell</p>
+        <p>hell</p>
+        <p class="pid">hell</p>
+        <p>hell</p>
+        <input type="button" value="点击"/>
+        <button>上边不管用</button>
+</body>
+</html>

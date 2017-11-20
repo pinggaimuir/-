@@ -1,0 +1,69 @@
+/* CSS Document */
+body {
+	margin:0;
+}
+ul,li {
+	margin:0;
+	padding:0;
+	list-style:none;
+	font:12px Arial, Helvetica, sans-serif;
+	/*color:#98d9ff;*/
+	
+}
+h5 {
+	margin:0;
+	padding:0;
+	font-size:13px;
+	/*color:#e3ffff;
+	color:#8ecdf6;*/
+	border-bottom:1px solid #2a719f;
+	background-color:#155078;
+	margin-bottom:2px;
+	height:30px;
+	line-height:30px;
+	padding-left:30px;
+	cursor:pointer;
+	color:#FFFFFF;
+	background:url(../images/q.gif) no-repeat 15px center;
+}
+#globallink {
+	/*filter: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#005a93,endColorStr=#009bff);
+	background-color:#005a93;*/
+	background-color:#155078;
+	width:200px;
+	height:520px;
+}
+.main ul li {
+	/*padding-left:40px;*/
+	height:25px;
+	line-height:25px;
+	cursor:pointer;
+	border-bottom:1px solid #155078;
+ 
+}
+.main ul {
+	display:none;
+}
+.main ul.navin {
+	display:block;
+}
+.old {
+	background-color:#33678c;
+	/*color:#8ecdf6;*/
+	color:#b2d6f6;
+	text-decoration:none;
+	display:block;
+	padding-left:40px;
+	
+}
+/*.main ul li.alt{
+	background:#0065a7;
+}*/
+.main ul li.hover {
+	/*background-color:#01385e;*/
+	background-color:#5f80a1;
+	color:#fff;
+	font-weight:bolder;
+	/*padding-left:33px;*/
+	border:2px solid #5893bb;
+}

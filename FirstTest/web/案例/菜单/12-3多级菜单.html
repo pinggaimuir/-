@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>多级菜单</title>
+<style type="text/css">
+<!--
+ul{
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+li{
+	padding:1px; margin:0px;
+}
+-->
+</style>
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+$(function(){
+	$("li:has(ul)").click(function(e){
+		if(this==e.target){
+			$(this).children().toggle();
+			$(this).css("list-style-image",($(this).children().is(":hidden")?"url(plus.gif)":"url(minus.gif)"))
+		}
+		return false;	//避免不必要的事件混绕
+	}).css("cursor","pointer").click();	//加载时触发点击事件
+	
+	//对于没有子项的菜单，统一设置
+	$("li:not(:has(ul))").css({
+		"cursor":"default",
+		"list-style-image":"none"
+	});
+});
+</script>
+</head>
+<body>
+<ul>
+	<li>第1章 Javascript简介</li>
+	<li>第2章 Javascript基础</li>
+	<li>第3章 CSS基础
+		<ul>
+			<li>第3.1节 CSS的概念</li>
+			<li>第3.2节 使用CSS控制页面
+				<ul>
+					<li>3.2.1 行内样式</li>
+					<li>3.2.2 内嵌式</li>
+				</ul>
+			</li>
+			<li>第3.3节 CSS选择器</li>
+		</ul>
+	</li>
+	<li>第4章 CSS进阶
+		<ul>
+			<li>第4.1节 div标记与span标记</li>
+			<li>第4.2节 盒子模型</li>
+			<li>第4.3节 元素的定位
+				<ul>
+					<li>4.3.1 float定位</li>
+					<li>4.3.2 position定位</li>
+					<li>4.3.3 z-index空间位置</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+</ul>
+</body>
+</html>

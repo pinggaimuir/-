@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广告轮播</title>
+    <script type="text/javascript" src="advertisementRoll.js"></script>
+    <style type="text/css">
+        span{
+            display:inline-block;
+            width:25px;
+            height:25px;
+            margin-left:15px;
+            background-color:darkgrey;
+            font-size:16px;
+            text-align: center;
+        }
+        span:hover{
+            background-color: #2E2E2E;
+        }
+        img{
+            margin:30px;
+        }
+    </style>
+</head>
+<body>
+    广告轮播<br/>
+    <img src="../img/index/icon_g1.png" id="image"/><br/>
+    <span id="1" onmouseover="rolling(1);" >1</span>
+    <span id="2" onmouseover="rolling(2);" >2</span>
+    <span id="3" onmouseover="rolling(3);">3</span>
+    <span id="4" onmouseover="rolling(4);">4</span>
+</body>
+</html>

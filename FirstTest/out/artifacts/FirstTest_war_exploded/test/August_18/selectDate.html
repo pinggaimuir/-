@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉班日历</title>
+    <script type="text/javascript">
+        /*判断是否时闰年*/
+        function isRun(){
+            var y=document.getElementById("year");
+            var year= parseInt(y.options[y.selectedIndex].innerHTML);
+            if((year%4==0&&year%100!=0)||year%400==0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        function appendOption(quantity){
+            var dateObj=document.getElementById("date");
+            //清除月的下拉框的选项
+            dateObj.options.length=0;
+            for(var i=1;i<=quantity;i++){
+                var dateNode=new Option(i,i);
+                dateObj.options[i-1]=dateNode;
+            }
+        }
+        function changeDate(){
+            //获得年的下拉框的index
+            var mindex=document.getElementById("month").selectedIndex;
+            mindex++;
+            //定义每月的天数
+            var quantity;
+            if(mindex==2){
+                if(isRun()){
+                    quantity=28;
+                }else{
+                    quantity=29;
+                }
+            }else if(mindex==4||mindex==6||mindex==9||mindex==11){
+                quantity=30;
+            }else{
+                quantity=31;
+            }
+            //为月下拉框添加选项
+            appendOption(quantity);
+        }
+    </script>
+</head>
+<body>
+    <h1>下拉版日历</h1>
+    <select id="year" onchange="changeDate();">
+        <option>2005</option>
+        <option>2006</option>
+        <option>2007</option>
+        <option>2008</option>
+        <option>2009</option>
+        <option>2010</option>
+        <option>2011</option>
+        <option>2012</option>
+        <option>2013</option>
+        <option>2014</option>
+        <option>2015</option>
+        <option>2016</option>
+    </select>年
+    <select id="month" onchange="changeDate();">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+    </select>月
+    <select id="date">
+        <option>1</option>
+    </select>日
+
+</body>
+</html>

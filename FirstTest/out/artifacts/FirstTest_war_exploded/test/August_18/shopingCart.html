@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+</head>
+    <script type="text/javascript" language="javascript" src="shopingCart.js"></script>
+    <style type="text/css">
+        table,td{
+            border:1px solid #000;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+<body>
+    <table>
+        <tr>
+            <td>商品名称</td>
+            <td>价格</td>
+            <td>数量</td>
+            <td>小计</td>
+        </tr>
+        <tr>
+            <td>book1</td>
+            <td>10.00</td>
+            <td>
+                <input type="button" value="-" onclick="decrease(this);"/>
+                <input type="text" value="1" id="amount1"/>
+                <input type="button" value="+" onclick="increase(1);"/>
+            </td>
+            <td>10.00</td>
+        </tr>
+        <tr>
+            <td>book2</td>
+            <td>5.00</td>
+            <td>
+                <input type="button" value="-" onclick="decrease(this);"/>
+                <input type="text" value="1" id="amount2"/>
+                <input type="button" value="+" onclick="increase(2);"/>
+            </td>
+            <td>5.00</td>
+        </tr>
+        <tr>
+            <td>book3</td>
+            <td>15.00</td>
+            <td>
+                <input type="button" value="-" onclick="decrease(this)"/>
+                <input type="text" value="1" id="amount3"/>
+                <input type="button" value="+" onclick="increase(3);"/>
+            </td>
+            <td>15.00</td>
+        </tr>
+        <tr>
+            <td colspan="3">总计：</td>
+            <td>30.00</td>
+        </tr>
+    </table>
+</body>
+</html>

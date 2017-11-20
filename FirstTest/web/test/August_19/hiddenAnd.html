@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>显示或者隐藏</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript" >
+        $(document).ready(function(){
+            //点击隐藏或者显示
+            $("#btn").click(function(){
+               $("#p1").toggle(1000);
+            });
+            //向body体内添加div块
+            for(var i=0;i<5;i++){
+                $("<div>").appendTo(document.body);
+            }
+            //慢慢隐藏并且删除
+            $("div").click(function(){
+                $(this).hide(2000,function(){
+                    $(this).remove();
+                })
+            });
+        });
+    </script>
+    <style type="text/css">
+        div{
+            width:100px;
+            height:100px;
+            background-color:rosybrown;
+            float:left;
+            margin-left:10px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="p1">我是隐藏呢还是显示呢！</p>
+    <button id="btn">隐藏/显示</button>
+</body>
+</html>

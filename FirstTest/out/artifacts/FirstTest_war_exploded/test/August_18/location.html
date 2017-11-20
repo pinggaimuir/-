@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location对象的两种跳转方式</title>
+    <script type="text/javascript">
+        function testLocation(index){
+            var url="http://www.tmooc.cn";
+            switch(index){
+                case 1:
+                    location.href=url;
+                    break;
+                case 2:
+                    location.replace(url);
+                    break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="使用location的href实行" onclick="testLocation(1);"/>
+    <input type="button" value="使用location的replace方法" onclick="testLocation(2);"/>
+</body>
+</html>

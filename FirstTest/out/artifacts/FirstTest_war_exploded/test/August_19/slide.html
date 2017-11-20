@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动效果</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //滑入
+           $("#d1").click(function(){
+               $("#d4").slideDown(1000);
+           }) ;
+            //自动滑出在滑出
+           $("#d2").on("mouseenter",function(){
+               $("#d4").css("background-color","yellow").slideDown(1000).slideUp(1000);
+           }) ;
+            //滑入或者滑出
+           $("#d3").click(function(){
+               $("#d4").slideToggle(1000);
+           }) ;
+        });
+    </script>
+    <style type="text/css">
+        #d1,#d2,#d3,#d4{
+            width:100%;
+            height:15px;
+            text-align: center;
+            background-color: #c2425d;
+            padding:10px;
+            font-family:"楷体";
+        }
+        a{
+            text-decoration:none;
+        }
+        #d4{
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"><a href="javascript:void(0)">滑入</a></div>
+    <div id="d2"><a href="javascript:void(0)">滑出</a></div>
+    <div id="d3"><a href="javascript:void(0)">滑出/滑入</a></div>
+    <div id="d4"></div>
+</body>
+</html>

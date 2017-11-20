@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试navigator对象的属性</title>
+    <script type="text/javascript" language="javascript">
+        function testNavigetor(){
+            var showText="Navigator对象的属性列表：";
+            for( var propname in navigator){
+                showText+=propname+":"+navigator[propname]+"\n";
+            }
+            document.getElementById("textInfo").innerHTML=showText;
+        }
+        function getEvent(Obj){01
+            var node=Obj.srcElement||Obj.target;
+            alert(node.nodeName);
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="遍历Navigator对象的属性" onclick="testNavigetor();getEvent(event);"/><br/>
+    <textarea id="textInfo" style="width:400px;height:200px;">
+
+    </textarea>
+</body>
+</html>

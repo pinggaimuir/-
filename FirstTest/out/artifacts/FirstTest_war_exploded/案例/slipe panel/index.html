@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0066)http://www.webdesignerwall.com/demo/jquery/simple-slide-panel.html -->
+<HTML 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Simple Slide Panel</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<SCRIPT src="images/jquery.js" 
+type=text/javascript></SCRIPT>
+
+<SCRIPT type=text/javascript>
+$(document).ready(function(){
+
+	$(".btn-slide").click(function(){
+		$("#panel").slideToggle("slow");
+		$(this).toggleClass("active"); return false;
+	});
+	
+	 
+});
+</SCRIPT>
+
+<STYLE type=text/css>BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; FONT: 75%/120% Arial, Helvetica, sans-serif; WIDTH: 570px; PADDING-TOP: 0px
+}
+A:focus {
+	outline: none
+}
+#panel {
+	DISPLAY: none; BACKGROUND: #754c24; HEIGHT: 200px
+}
+.slide {
+	PADDING-RIGHT: 0px; BORDER-TOP: #422410 4px solid; PADDING-LEFT: 0px; BACKGROUND: url(images/btn-slide.gif) no-repeat center top; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+.btn-slide {
+	PADDING-RIGHT: 10px; DISPLAY: block; PADDING-LEFT: 0px; BACKGROUND: url(images/white-arrow.gif) no-repeat right -50px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; FONT: bold 120%/100% Arial, Helvetica, sans-serif; WIDTH: 144px; COLOR: #fff; PADDING-TOP: 10px; HEIGHT: 31px; TEXT-ALIGN: center; TEXT-DECORATION: none
+}
+.active {
+	BACKGROUND-POSITION: right 12px
+}
+</STYLE>
+
+<META content="MSHTML 6.00.6000.16397" name=GENERATOR></HEAD>
+<BODY>
+<DIV id=panel><!-- you can put content here --></DIV>
+<P class=slide><A class=btn-slide 
+href="http://www.webdesignerwall.com/demo/jquery/simple-slide-panel.html#">Slide 
+Panel</A></P></BODY></HTML>

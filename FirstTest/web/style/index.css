@@ -1,0 +1,173 @@
+﻿/* header */
+#header .line1{
+	height: 35px;
+	border-bottom: 1px solid #ededed;
+	background-color: #fafafa;
+	font-size: 14px;
+	color: #666666;
+}
+#header .line1 .content{
+	width:1200px;
+	margin: 0 auto;
+	line-height:35px;
+}
+
+#header .line1 .content a{
+	font-family:"微软雅黑";
+	color: #666666;
+}
+
+#header .line2{
+	margin: 0 auto;
+	/*border:1px solid red;*/
+	height:90px;
+	width:1200px;
+	/*line-height:100px;*/
+	padding-top:10px;
+}
+
+#header .line2 .logo{
+	vertical-align: middle;
+}
+#header .line2 .search{
+	vertical-align: middle;
+}
+#header .line2 .search_inp{
+	margin-left: 120px;
+	width: 370px;
+	height:32px;
+	border: 2px solid #ca141d;
+	vertical-align: middle;
+}
+#header .line2 .search_btn{
+	color: #ffffff;
+	font-size:14px;
+	width: 70px;
+	height:36px;
+	background-color:#ca141d;
+	vertical-align: middle;
+}
+
+#header .line2 .my_order_cart{
+	height:34px;
+	border: 1px solid #e5e5e5;
+	line-height: 36px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#header .line2 .my_order_cart a{
+	text-decoration: none;
+	color:#555555;
+	font-size:14px;
+	vertical-align:middle;
+}
+#header .line2 .qr{
+	vertical-align: middle;
+	margin-left:155px;
+}
+
+#header .line3{
+    height: 38px;
+	background-color: #ca141d;
+    width: 100%;	
+}
+#header .line3 .content{
+	width:1200px;
+	margin: 0 auto;
+}
+#header .line3 .content ul li{
+	height: 38px;
+    width: 120px;
+    float:left;
+    line-height:38px;
+    text-align: center;
+}
+#header .line3 .content ul li:hover{
+	background-color: #d9141e;
+}
+#header .line3 .content ul li a{
+	color: #ffffff;
+	text-decoration: none;
+	font-size:16px;
+}
+
+
+/* index */
+#index{
+	width:1200px;
+	margin:0px auto;
+}
+#index .line2{
+	margin-top:10px;
+}
+#index .line2 img{
+	margin-right:8px;
+}
+
+#index .line2 img.last{
+	float:right;
+	margin-right:0;
+}
+
+#index .line3{
+	margin-top:10px;
+}
+#index .line3 img{
+	margin-right:8px;
+}
+
+#index .line3 .line3_right{
+	width:278px;
+	float:right;
+}
+
+#index .line3 .line3_right img:first-child{
+	margin-bottom:16px;
+}
+
+#index .line4{
+	margin-top:10px;
+}
+
+#index .line5{
+	height:60px;
+	padding-top:20px;
+	border-top:1px solid #eeeeee;
+	font-size:16px;
+	font-weight:bolder;
+	color:#666;
+}
+
+#index .line5 .security{
+	float:left;
+	width:300px;
+}
+#index .line5 .security img{
+	vertical-align: middle;
+	margin-right:10px;
+}
+#index .line5 .security span{
+	vertical-align: middle;
+}
+
+
+/* footer */
+#footer{
+	width:1200px;
+	margin:0 auto;
+	padding:10px;
+	border-top:1px solid #eeeeee;
+}
+
+#footer p{
+	
+	text-align:center;
+	color:#666666;
+	font-size:13px;
+}
+
+
+
+
+

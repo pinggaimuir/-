@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字体大小变化</title>
+    <script type="text/javascript">
+        function $(id){
+            return document.getElementById(id);
+        }
+        function fontSize(id){
+            var size=$("div");
+            size.className=id;
+        }
+    </script>
+    <style type="text/css">
+        .min{
+            width:300px;
+            border:1px solid sandybrown;
+            padding:8px;
+            font-family: "宋体", "Arial Narrow";
+            color: #4cbae8;
+            font-size: 12px;
+        }
+        .middle{
+            width:300px;
+            border:1px solid sandybrown;
+            padding:8px;
+            font-family: "宋体", "Arial Narrow";
+            color: #4cbae8;
+            font-size: 15px;
+        }
+        .max{
+            width:300px;
+            border:1px solid sandybrown;
+            padding:8px;
+            font-family: "宋体", "Arial Narrow";
+            color: #4cbae8;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>这是一个不怎么大的新闻</h1>
+    <a href="javascript:void(0)" id="1" onclick="fontSize('min')">小字体</a>
+    <a href="javascript:void(0)" id="2" onclick="fontSize('middle')">中字体</a>
+    <a href="javascript:void(0)" id="3" onclick="fontSize('max')">大字体</a>
+    <hr/>
+    <div id="div" class="middle">
+        老子能变换字体大小！  不信你看！！<br/>
+        老子能变换字体大小！  不信你看！！<br/>
+        老子能变换字体大小！  不信你看！！<br/>
+        老子能变换字体大小！  不信你看！！<br/>
+        老子能变换字体大小！  不信你看！！<br/>
+        老子能变换字体大小！  不信你看！！<br/>
+    </div>
+</body>
+</html>

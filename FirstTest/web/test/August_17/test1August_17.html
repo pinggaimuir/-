@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js练习</title>
+    <script  type="text/javascript" language="javascript">
+        function validate1(){
+           var str= document.getElementById("text1").value;
+            var reg1=/^[0-9a-zA-Z]{3,6}$/;
+           var isRight= reg1.test(str);
+            if(!isRight){
+                document.getElementById("s1").innerText="您输入的格式不正确！";
+            }
+        }
+        function validate2(){
+            var str2=document.getElementById("text2").value;
+            var reg2=/^\d{6}$/;
+            var isRight2=reg2.test(str2);
+            if(!isRight2){
+                document.getElementById("s2").innerText="你输入的格式不正确！";
+            }
+        }
+    </script>
+</head>
+<body>
+   用户名(3到6位字母数字的组合) ：<input type="text" id="text1" onblur="validate1()"/><span id="s1"></span><br/>
+    电话号码(6位数字)：<input type="text" id="text2" onblur="validate2()"/><span id="s2"></span>
+
+</body>
+</html>

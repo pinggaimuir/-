@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>定位布局</title>
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+		<script src="./js/jquery-1.9.1.js"></script>
+		<script src="./js/jquery-ui.js"></script>
+		<script type="text/javascript">
+			$(function() { $('#div1').draggable(); });
+		</script>
+		
+		<style type="text/css">
+			div{
+				border:1px solid #000000;
+				font-size:30px;
+				width:150px;
+				height:150px;
+			}
+			#box1{
+				width:540px;
+				height:540px;
+			}
+			#box2{
+				width:500px;
+				height:500px;
+				margin:20px;
+			}
+			#div1{
+				background-color: red;
+				/*position: relative;
+				top:50px;
+				left:50px;*/
+				
+				/*position: absolute;
+				top:100px;
+				left:100px;*/
+				float:left;
+				
+ 			}
+			#div2{
+				background-color: green;
+				float:left;
+			}
+			#div3{
+				background-color: blue;
+				position:absolute;
+				top:80px;
+				left:80px;
+
+			}
+			#div4{
+				background-color: black;
+				position:relative;
+				top:60px;
+				left:60px;
+
+			}
+			#div5{
+				background-color: brown;
+
+			}
+
+		</style>
+		
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<div id="div1">div1</div>
+
+				<div id="div2">div2</div>
+				<div id="div3">div3</div>
+				<div id="div4">div4</div>
+				<div id="div5">div5</div>
+
+			</div>
+		</div>
+	</body>
+</html>

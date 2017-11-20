@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryAppend</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript" language="JavaScript">
+        $(document).ready(function(){
+           $("#btn1").on("click",function(){
+               $("#p2").after("我时追加的字体");
+           }) ;
+            $("#btn3").click(function(){
+                $("#d1").empty();
+                /*把标签内的内容设置为空
+                 $("#d1").empty();
+                 */
+            });
+        });
+        //添加元素的三种方式
+        function appendNode(){
+            var node1="<a href='http:www.baidu.com'>baidu</a>";
+            var node2=$("<p></p>").text("低温 冰冷!!!!");
+            var node3=document.createElement("input");
+            node3.type="text";
+               $("body").append(node3,node2,node1);
+        }
+    </script>
+</head>
+
+<body>
+    <p id="p1">这是p1</p>
+  <div id="d1" style="width:200px;height:200px;background-color: #2a719f"> <p >这是p1</p></div>
+    <button id="btn1">点击追加</button><br/>
+    <button id="btn3">删除</button>
+    <input type="button" value="zhujia" id="btn2" onclick="appendNode()"/>
+</body>
+</html>

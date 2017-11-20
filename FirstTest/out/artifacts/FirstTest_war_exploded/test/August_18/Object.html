@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object对象的使用</title>
+    <script type="text/javascript" language="JavaScript">
+        function testObj(){
+            var person=new Object();
+            person.name="gaojian";
+            person.age=13;
+            person.instroduceSelf=function(){
+              var info="i am"+this.name+"，年龄"+this.age;
+                alert(info);
+            };
+            person.instroduceSelf();
+        }
+        function Person(n,a){
+            this.name=n;
+            this.age=a;
+            this.introduceSelf=intro;
+        }
+        function intro(){
+            var info=" i am"+this.name+",my age:"+this.age;
+            alert(info);
+        }
+        function test(){
+            var p=new Person("gaojian",24);
+            alert(" i am"+p.name+",my age:"+p.age);
+            p.introduceSelf();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="Object对象的测试" onclick="test();"/>
+</body>
+</html>

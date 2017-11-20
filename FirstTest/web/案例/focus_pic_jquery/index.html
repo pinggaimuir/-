@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="JS代码,图片特效,JS广告代码,JS特效代码" />
+<meta name="description" content="此代码内容为幻灯片图片切换效果，属于站长常用代码，更多图片特效代码请访问脚本之家JS代码频道。" />
+<title>幻灯片图片切换效果_脚本之家</title>
+<LINK rel=stylesheet type=text/css href="css/lrtk.css" charset=utf-8 media=screen>
+<SCRIPT type=text/javascript src="js/jquery-1.3.2.min.js"></SCRIPT>
+<SCRIPT type=text/javascript src="js/jquery.easing.1.2.js"></SCRIPT>
+<SCRIPT type=text/javascript>
+	// <![CDATA[
+		$(document).ready(function(){
+		
+			if ($('#pager a').size() <= 1) {
+				$('#pager').css('display', 'none');
+				return;
+			}
+		
+			var index = 0;
+			var selected = null;
+			var width = 756;
+			
+			$('#pager a').each(function(i){
+				if (i == 0) {
+					selected = $(this);
+					selected.find('img').attr('src', 'images/button-view-active.gif');
+				}
+				$(this).click(function(){
+					index = i;
+					selected.find('img').attr('src', 'images/button-view.gif');
+					selected = $(this);
+					selected.find('img').attr('src', 'images/button-view-active.gif');
+					$('#images').animate({left:-(width * i)}, 500, 'easeOutQuad');
+					return false;
+				});
+			});
+			
+			$('#images').wrapInner('<a href="#" id="next"></a>');
+			$('#next').click(function(){
+				var a = $('#pager a').get(index + 1);
+				if (!a) a = $('#pager a').get(0);
+				$(a).click();
+				return false;
+			});
+		});
+	// ]]>
+	</SCRIPT>
+</head>
+
+<body style="text-align:center" class=work-project>
+
+<DIV id=content>
+<DIV id=project><!-- project navigation -->
+<P id=navigation><SPAN id=pager>
+<A href="images/1.jpg"><IMG alt=1 src="images/button-view.gif" width=12 height=19></A>
+<A href="images/2.jpg"><IMG alt=2 src="images/button-view.gif" width=12 height=19></A>
+<A href="images/3.jpg"><IMG alt=3 src="images/button-view.gif" width=12 height=19></A>
+<A href="images/4.jpg"><IMG alt=4 src="images/button-view.gif" width=12 height=19></A>
+<A href="images/5.jpg"><IMG alt=5 src="images/button-view.gif" width=12 height=19></A>
+</SPAN></P>
+<!-- project images -->
+<DIV id=mask>
+<DIV id=images>
+<IMG src="images/1.jpg" width=756 height=518><IMG src="images/2.jpg" width=756 height=518><IMG src="images/3.jpg" width=756 height=518><IMG src="images/4.jpg" width=756 height=518><IMG src="images/5.jpg" width=756 height=518></DIV></DIV><!-- project title -->
+</DIV></DIV>
+</DIV>
+
+<p>来源：<a href="http://www.squidfingers.com/work/kcai-holiday-card/" target="_blank">squidfingers</a>　代码提供：<a href="http://www.jb51.net/" target="_blank">脚本之家</a>　感谢：<a href="http://tools.jb51.net/" target="_blank">站长工具</a></p>
+<p>＊尊重他人劳动成果，转载请自觉注明出处！注：此代码仅供学习交流，请勿用于商业用途。</p>
+<p></p>
+<p><p>幻灯片图片切换效果，适合做产品演示，脚本之家推荐下载！</p></p>
+<p></p>
+</body>
+</html>

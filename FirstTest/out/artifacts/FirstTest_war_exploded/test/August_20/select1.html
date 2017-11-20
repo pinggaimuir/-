@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择</title>
+    <script type="text/javascript">
+        function show(num){
+            var body =document.getElementsByTagName("body")[0];
+            var p=document.getElementsByTagName("p");
+            if(p.length==0){
+                var tip=document.createElement("p");
+                body.appendChild(tip);
+                switch(num){
+                    case 1:
+                        tip.innerHTML="小伙子！你未来很幸福啊！";break;
+                    case 2:
+                        tip.innerHTML="小伙子！你理想挺远大的么！";break;
+                    case 3:
+                        tip.innerHTML="小伙子！恭喜你来到欧盟！";break;
+                    case 4:
+                        tip.innerHTML="小伙子！你他妈想去哪？";break;
+                }
+            }else {
+                switch(num){
+                    case 1:
+                        p[0].innerHTML="小伙子！你未来很幸福啊！";break;
+                    case 2:
+                        p[0].innerHTML="小伙子！你理想挺远大的么！";break;
+                    case 3:
+                        p[0].innerHTML="小伙子！恭喜你来到欧盟！";break;
+                    case 4:
+                        p[0].innerHTML="小伙子！你他妈想去哪？";break;
+                }
+            }
+
+           location.href="http://www.4399.com";
+        }
+    </script>
+</head>
+<body>
+    <h1>请选择居住地：</h1>
+    <input type="radio" name="country" value="中国" onclick="show(1)"/>中国<br/>
+    <input type="radio" name="country" value="美国" onclick="show(2)"/>美国<br/>
+    <input type="radio" name="country" value="西班牙" onclick="show(3)"/>中国<br/>
+    <input type="radio"name="country"  value="爪哇国" onclick="show(4)"/>中国<br/>
+</body>
+</html>

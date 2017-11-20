@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点选矿测试</title>
+    <script type="text/javascript" language="JavaScript">
+       var btn= document.getElementById("btn");
+        function b(){
+          var d=document.getElementsByName("sex")[0];
+            alert(d.value);
+        };
+    </script>
+</head>
+<body>
+    <input type="radio" name=sex value="男" >男
+    <input type="radio" name="sex" value="女">女
+    <button id="btn" onclick="b();">点击</button>
+</body>
+</html>
