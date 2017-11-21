@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gao.ht.mapper.UserMapper">
+        <resultMap id="UserMP" type="cn.gao.ht.pojo.User">
+            <!-- 用户信息 -->
+            <id property="userId" column="user_id"/>
+            <result property="username" column="username"/>
+            <result property="password" column="password"/>
+            <result property="state" column="state"/>
+            <result property="createBy" column="create_by"/>
+            <result property="createDept" column="create_dept"/>
+            <result property="createTime" column="create_time"/>
+            <result property="updateBy" column="update_by"/>
+            <result property="updateTime" column="update_time"/>
+            <!-- 关联部门 -->
+            <association property="dept" javaType="cn.gao.ht.pojo.Dept">
+                <id property="deptId" column="dept_id"/>
+                <result property="deptName" column="dept_name"/>
+            </association>
+            <!-- 关联用户扩展信息 -->
+            <association property="userInfo" javaType="cn.gao.ht.pojo.UserInfo">
+                <id property="userInfoId" column="user_id"/>
+                <result property="name" column="name"/>
+                <result property="userLevel" column="user_level"/>
+                <result property="telephone" column="telephone"/>
+                <result property="station" column="station"/>
+                <result property="salary" column="salary"/>
+                <result property="remark" column="remark"/>
+                <result property="orderNo" column="order_no"/>
+                <result property="joinDate" column="join_date"/>
+                <result property="gender" column="gender"/>
+                <result property="cardNo" column="card_no"/>
+                <result property="birthday" column="birthday"/>
+                <!--关联直属领导  -->
+                <association property="manager" javaType="UserInfo">
+                    <id property="userInfoId" column="MANAGER_ID"/>
+                    <result property="name" column="MANAGER_NAME"/>
+                </association>
+            </association>
+        </resultMap>
+        <select id="findUserList" resultMap="UserMP">
+     select u.user_id,username,u.password,u.state,u.create_by,
+            u.create_dept,u.create_time,u.update_by,u.station,
+            u.update_time,u.name,u.manager_id,u.manager_name,u.card_no,u.join_date,u.salary,
+            u.birthday,u.gender,u.telephone,u.user_level,u.remark,u.order_no,
+            d.dept_id,d.dept_name,d.state dept_state
+            from
+            (select u.user_id,u.dept_id,u.username,u.password,u.state,u.create_by,
+            u.create_dept,u.create_time,u.update_by,u.update_time,p.manager_id,
+            p.name,p.manager_name,p.card_no,p.join_date,p.salary,p.station,
+            p.birthday,p.gender,p.telephone,p.user_level,p.remark,p.order_no
+             from user_p u left join
+            (select u.user_info_id,u.manager_id,p.name manager_name,u.name,u.card_no,u.join_date,
+            u.salary,u.birthday,u.gender,u.station,
+            u.telephone,u.user_level,u.remark,u.order_no
+            from user_info_p u left join  user_info_p p on
+            p.user_info_id=u.manager_id)p
+            on u.user_id=p.user_info_id)u
+            left join dept_p d on
+            u.dept_id=d.dept_id
+        </select>
+
+        <update id="updateUserState">
+            UPDATE user_p set state=#{state} where user_id=#{userId}
+        </update>
+
+        <delete id="deleteUser" parameterType="java.lang.String">
+            DELETE FROM user_p WHERE user_id=#{userId}
+        </delete>
+    
+        <!-- 查找用户扩展信息列表 -->
+        <select id="finUserInfoList" resultType="cn.gao.ht.pojo.UserInfo">
+            select * from user_info_p
+        </select>
+        <!-- 添加用户 -->
+        <insert id="saveUser" parameterType="cn.gao.ht.pojo.User">
+            <selectKey order="BEFORE" keyProperty="userId" resultType="java.lang.String">
+                SELECT sys_guid() from dual
+            </selectKey>
+            insert into USER_P (USER_ID, DEPT_ID, USERNAME,
+            PASSWORD, STATE, CREATE_BY,
+            CREATE_DEPT, CREATE_TIME, UPDATE_BY,
+            UPDATE_TIME)
+            values (#{userId,jdbcType=VARCHAR}, #{dept.deptId,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+            #{password,jdbcType=VARCHAR},1, #{createBy,jdbcType=VARCHAR},
+            #{createDept,jdbcType=VARCHAR}, SYSDATE, #{updateBy,jdbcType=VARCHAR},
+            SYSDATE)
+        </insert>
+        <!-- 通过用户主键查找用户id -->
+        <select id="findUserByPrimaryKey" parameterType="string" resultMap="UserMP">
+           select u.user_id,username,u.password,u.state,u.create_by,
+            u.create_dept,u.create_time,u.update_by,u.station,
+            u.update_time,u.name,u.manager_name,u.card_no,u.join_date,u.salary,
+            u.birthday,u.gender,u.telephone,u.user_level,u.remark,u.order_no,
+            d.dept_id,d.dept_name,d.state dept_state
+            from
+            (select u.user_id,u.dept_id,u.username,u.password,u.state,u.create_by,
+            u.create_dept,u.create_time,u.update_by,u.update_time,
+            p.name,p.manager_name,p.card_no,p.join_date,p.salary,p.station,
+            p.birthday,p.gender,p.telephone,p.user_level,p.remark,p.order_no
+             from user_p u left join
+            (select u.user_info_id,p.name manager_name,u.name,u.card_no,u.join_date,
+            u.salary,u.birthday,u.gender,u.station,
+            u.telephone,u.user_level,u.remark,u.order_no
+            from user_info_p u left join  user_info_p p on
+            u.user_info_id=p.manager_id)p
+            on u.user_id=p.user_info_id where u.user_id=#{userId})u
+            left join dept_p d on
+            u.dept_id=d.dept_id
+        </select>
+    <!-- 通过用户名查找用户 -->
+    <select id="findUserByUserName" resultType="cn.gao.ht.pojo.User">
+        SELECT * from user_p WHERE username=#{username}
+    </select>
+    <!-- 通过用户名查找用户送拥有的所有角色 -->
+    <select id="findRoleNamesByUsername" parameterType="string" resultType="java.lang.String">
+        select r.name rolename FROM
+        user_p u,role_p r,role_user_p ru
+        where
+        ru.role_id=r.role_id AND ru.auth_user_id=u.user_id and username=#{username}
+    </select>
+
+    <!--通过用户名查询用户所拥有的所有权限-->
+    <select id="findModuleNameByUsername" parameterType="string" resultType="java.lang.String">
+       SELECT m.NAME modulename FROM
+       MODULE_P m,ROLE_P r,ROLE_MODULE_P rm
+       WHERE
+       rm.ROLE_ID=r.ROLE_ID AND rm.MODULE_ID=m.MODULE_ID
+       AND R.ROLE_ID IN
+       (SELECT r.role_id FROM
+        user_p u,role_p r,role_user_p ru
+        where
+        ru.role_id=r.role_id AND ru.auth_user_id=u.user_id and username=#{username}
+       )
+    </select>
+
+    <!-- 通过主键修稿用户信息 -->
+        <update id="updateUser" parameterType="cn.gao.ht.pojo.User">
+            update USER_P
+            set DEPT_ID = #{dept.deptId,jdbcType=VARCHAR},
+              USERNAME = #{username,jdbcType=VARCHAR},
+              PASSWORD = #{password,jdbcType=VARCHAR},
+              STATE = 1,
+              CREATE_BY = #{createBy,jdbcType=VARCHAR},
+              CREATE_DEPT = #{createDept,jdbcType=VARCHAR},
+              CREATE_TIME = SYSDATE,
+              UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+              UPDATE_TIME = SYSDATE
+            where USER_ID = #{userId,jdbcType=VARCHAR}
+        </update>
+        <insert id="saveUserRole">
+            INSERT INTO ROLE_USER_P (ROLE_ID,AUTH_USER_ID) values (#{roleId},#{userId})
+        </insert>
+</mapper>

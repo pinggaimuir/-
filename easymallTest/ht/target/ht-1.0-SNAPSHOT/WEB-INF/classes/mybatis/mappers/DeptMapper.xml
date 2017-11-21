@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gao.ht.mapper.DeptMapper">
+    <select id="findDeptList" resultMap="deptRM">
+        select d.parent_id,d.dept_id,d.dept_name,d.state,p.dept_name parent_name,d.create_by,
+        d.create_dept,d.create_time,d.update_by,d.update_time from
+        dept_p d
+        left join
+        dept_p p
+        on d.parent_id=p.dept_id
+    </select>
+    <resultMap id="deptRM" type="cn.gao.ht.pojo.Dept">
+        <id column="dept_id" property="deptId"/>
+        <result property="deptName" column="dept_name"/>
+        <!--<result property="parentDept" column="parent_dept"/>-->
+        <result property="state" column="state"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createDept" column="create_dept"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <association property="parentDept" javaType="cn.gao.ht.pojo.Dept">
+            <id property="deptId" column="parent_id"/>
+            <result property="deptName" column="parent_name"/>
+        </association>
+    </resultMap>
+    <!-- 修改部门状态 -->
+    <update id="updateDeptState">
+        update dept_p set state=#{state,jdbcType=NUMERIC} where dept_id=#{deptId,jdbcType=VARCHAR}
+    </update>
+    <!-- 删除部门信息 -->
+    <delete id="deleteDept" parameterType="java.lang.Integer">
+        DELETE FROM dept_p WHERE dept_id=#{id,jdbcType=VARCHAR}
+    </delete>
+    <!-- 新建部门信息提交保存 -->
+    <insert id="saveDept" parameterType="cn.gao.ht.pojo.Dept">
+       insert into dept_p
+      /* (dept_id,parent_id,dept_name,state,
+       create_by,create_dept,create_time,update_by,update_time)*/
+        values(#{deptId},#{parentDept.deptId},#{deptName},1,
+        #{createBy,jdbcType=VARCHAR},#{createDept,jdbcType=VARCHAR},SYSDATE,#{updateBy,jdbcType=VARCHAR},SYSDATE)
+    </insert>
+    <!-- 通过部门id查询单个部门信息 -->
+    <select id="selectDeptOne" parameterType="java.lang.String" resultMap="deptRM">
+         select d.parent_id,d.dept_id,d.dept_name,d.state,p.dept_name parent_name,d.create_by,
+        d.create_dept,d.create_time,d.update_by,d.update_time from
+        dept_p d
+        left join
+        dept_p p
+        on d.parent_id=p.dept_id
+        where d.dept_id=#{deptId,jdbcType=VARCHAR}
+    </select>
+    <!-- 获取所有部门的下拉列表 -->
+    <select id="getDeptList" resultType="cn.gao.ht.pojo.Dept">
+        select dept_id,dept_name from dept_p
+    </select>
+    <!-- 更新部门名称 -->
+    <update id="updateDept" parameterType="cn.gao.ht.pojo.Dept">
+        UPDATE dept_p set dept_name=#{deptName,jdbcType=VARCHAR},state=#{state,jdbcType=NUMERIC},
+        parent_id=#{parentDept.deptId,jdbcType=VARCHAR},update_time=sysdate
+         where dept_id=#{deptId,jdbcType=VARCHAR}
+    </update>
+</mapper>

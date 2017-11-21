@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gao.ht.mapper.ModuleMapper">
+    <resultMap id="ModuleMP" type="cn.gao.ht.pojo.Module">
+        <id property="moduleId" column="MODULE_ID"/>
+        <result property="name" column="NAME"/>
+        <result property="ctype" column="CTYPE"/>
+        <result property="orderNo" column="ORDER_NO"/>
+        <result property="state" column="STATE"/>
+        <result property="remark" column="REMARK"/>
+        <result property="createBy" column="CREATE_BY"/>
+        <result property="createDept" column="CREATE_DEPT"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="updateBy" column="UPDATE_BY"/>
+        <result property="updateTime" column="UPDATE_TIME"/>
+        <association property="parent" javaType="cn.gao.ht.pojo.Module">
+            <id property="moduleId" column="PARENT_ID"/>
+            <result property="name" column="PARENT_NAME"/>
+        </association>
+    </resultMap>
+    <!-- 模块列表信息查询 -->
+    <select id="findModuleList" resultMap="ModuleMP">
+        SELECT M.MODULE_ID,P.MODULE_ID PARENT_ID,P.NAME PARENT_NAME,
+        M.NAME,M.CTYPE,M.ORDER_NO,M.STATE,M.REMARK,M.CREATE_BY,
+        M.CREATE_DEPT,M.CREATE_TIME,M.UPDATE_BY,M.UPDATE_TIME
+        FROM MODULE_P M LEFT JOIN MODULE_P P ON
+        M.PARENT_ID=P.MODULE_ID
+    </select>
+    <!-- 删除模块 -->
+    <delete id="deleteModule">
+        DELETE FROM MODULE_P WHERE MODULE_ID in
+        <foreach collection="array" item="moduleId" open="(" close=")" separator=",">
+          #{moduleId}
+        </foreach>
+    </delete>
+    <delete id="deleteRoleModuleByRoleId" parameterType="string">
+        DELETE FROM role_module_p WHERE role_id=#{roleId}
+    </delete>
+    <!-- 查询单个模块信息 -->
+    <select id="findModuleByPrimaryKey" resultType="string" resultMap="ModuleMP">
+        SELECT M.MODULE_ID,P.MODULE_ID PARENT_ID,P.NAME PARENT_NAME,
+        M.NAME,M.CTYPE,M.ORDER_NO,M.STATE,M.REMARK,M.CREATE_BY,
+        M.CREATE_DEPT,M.CREATE_TIME,M.UPDATE_BY,M.UPDATE_TIME
+        FROM MODULE_P M LEFT JOIN MODULE_P P ON
+        M.PARENT_ID=P.MODULE_ID
+        WHERE M.MODULE_ID=#{moduld,jdbcType=VARCHAR}
+    </select>
+    <!-- 查咋哄所有启用模块 -->
+    <select id="findModuleListState" resultMap="ModuleMP">
+        SELECT * from MODULE_P WHERE state=1
+    </select>
+    <!-- 通过角色IDc查找角色的所有权限 -->
+    <select id="findModuleIdsByroleId" resultType="java.lang.String">
+        SELECT module_id from role_module_p WHERE role_id=#{roleId}
+    </select>
+
+    <!-- 插入mo模块信息 -->
+    <insert id="saveModule" parameterType="cn.gao.ht.pojo.Module">
+        <selectKey keyProperty="moduleId" order="BEFORE" resultType="string">
+            SELECT sys_guid() from dual
+        </selectKey>
+        insert into MODULE_P (MODULE_ID, PARENT_ID, NAME,
+      CTYPE, STATE, ORDER_NO,
+      REMARK, CREATE_BY, CREATE_DEPT,
+      CREATE_TIME, UPDATE_BY, UPDATE_TIME
+      )
+    values (#{moduleId,jdbcType=VARCHAR}, #{parent.moduleId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{ctype,jdbcType=DECIMAL}, #{state,jdbcType=DECIMAL}, #{orderNo,jdbcType=DECIMAL},
+      #{remark,jdbcType=VARCHAR}, #{createBy,jdbcType=VARCHAR}, #{createDept,jdbcType=VARCHAR},
+      SYSDATE, #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+    </insert>
+
+    <!-- 更新模块信息 -->
+    <update id="updateModule" parameterType="cn.gao.ht.pojo.Module">
+        update MODULE_P
+        <set >
+            <if test="parent.moduleId != null" >
+                PARENT_ID = #{parent.moduleId,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null" >
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="ctype != null" >
+                CTYPE = #{ctype,jdbcType=DECIMAL},
+            </if>
+            <if test="state != null" >
+                STATE = #{state,jdbcType=DECIMAL},
+            </if>
+            <if test="orderNo != null" >
+                ORDER_NO = #{orderNo,jdbcType=DECIMAL},
+            </if>
+            <if test="remark != null" >
+                REMARK = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="createBy != null" >
+                CREATE_BY = #{createBy,jdbcType=VARCHAR},
+            </if>
+            <if test="createDept != null" >
+                CREATE_DEPT = #{createDept,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null" >
+                CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateBy != null" >
+                UPDATE_BY = #{updateBy,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null" >
+                UPDATE_TIME =SYSDATE,
+            </if>
+        </set>
+        where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+    </update>
+    <!-- 修改模块状态 -->
+    <update id="updateModuleState">
+        UPDATE MODULE_P SET STATE=#{state} WHERE MODULE_ID in
+        <foreach collection="moduleIds" item="moduleId" open="(" close=")" separator=",">
+           #{moduleId}
+        </foreach>
+    </update>
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 缓存管理器 -->
+    <!--<bean class="org.apache.shiro.cache.ehcache.EhCacheManager"></bean>-->
+
+
+    <!-- 配置shiro的 安全管理器，
+  		1.shiro会自动帮你做登录认证和权限认证，但是你得给shiro提供登录的资料（比如用户名和密码）以及权限
+  		  认证的资料（比如用户拥有哪些权限）
+  		 这些提供资料的代码，会写在一个类里，这个类需要开发人员自己写，一般把这个类叫做AuthRealm,
+  		 这个类必须得继承一个类，叫做AuthorizingRealm，之后继承这个类，并且在安全管理器里配置一下，
+  		 shiro才能知道有这么个东西，才能给你干活
+  	 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="UserRealm"/>
+    </bean>
+    <!-- 权限管理器,想干活，得让领导（安全管理器）知道，所以需要配置一下 -->
+    <bean  class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"></property>
+    </bean>
+
+    <!-- 凭证匹配器-->
+    <bean id="UserRealm" class="cn.gao.ht.shiro.UserRealm">
+        <!-- RealM实现 -->
+        <property name="credentialsMatcher" ref="HashedCredentialsMatcher"/>
+    </bean>
+    <bean id="HashedCredentialsMatcher" class="cn.gao.ht.shiro.HashedCredentialsMatcher"/>
+
+    <!-- shiro的web过滤器 -->
+    <bean id="shrioFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="loginUrl" value="login.jsp"/>
+        <property name="securityManager" ref="securityManager"/>
+        <!--<property name="unauthorizedUrl" value="/"/>-->
+        <property name="filterChainDefinitions">
+            <value>
+                /resources/**=anon
+                /login.jsp=anon
+                /sysadmin/module/**=roles[总经理]
+                /**=anon
+
+            </value>
+        </property>
+    </bean>
+
+    <bean id="lifeCycleBeanProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+    <bean
+        class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+        depends-on="lifeCycleBeanProcessor">
+
+        <property name="proxyTargetClass" value="true"></property>
+    </bean>
+
+    <!-- 使用cglib进行代理 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+
+</beans>
