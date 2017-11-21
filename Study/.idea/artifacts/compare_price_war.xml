@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="compare-price:war">
+    <output-path>$PROJECT_DIR$/compare-price/target</output-path>
+    <root id="archive" name="compare-price.war">
+      <element id="artifact" artifact-name="compare-price:war exploded" />
+    </root>
+  </artifact>
+</component>

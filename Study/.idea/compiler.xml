@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="avro" />
+        <module name="compare-price" />
+        <module name="contract" />
+        <module name="engine1" />
+        <module name="engine2" />
+        <module name="jobtracker" />
+      </profile>
+      <profile default="false" name="Annotation profile for secondkill" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="secondkill" />
+      </profile>
+      <profile default="false" name="Annotation profile for myarvo" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="myarvo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="avro" target="1.5" />
+      <module name="compare" target="1.5" />
+      <module name="compare-price" target="1.5" />
+      <module name="compare1" target="1.5" />
+      <module name="contract" target="1.5" />
+      <module name="engine1" target="1.5" />
+      <module name="engine2" target="1.5" />
+      <module name="jian" target="1.5" />
+      <module name="jianjian" target="1.5" />
+      <module name="jobtracker" target="1.5" />
+      <module name="myarvo" target="1.6" />
+      <module name="mymvc" target="1.5" />
+      <module name="rpctest" target="1.6" />
+      <module name="secondkill" target="1.7" />
+      <module name="untitled" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+{"namespace":"cn.gao",
+"type":"record",
+"name":"User",
+"fields":[
+        {"name":"name","type":"string"},
+        {"name":"gender","type":["string","null"]},
+        {"name":"age","type":["int","null"]}
+        ]
+}

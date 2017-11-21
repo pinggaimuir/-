@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="secondkill:war">
+    <output-path>$PROJECT_DIR$/secondkill/target</output-path>
+    <root id="archive" name="secondkill.war">
+      <element id="artifact" artifact-name="secondkill:war exploded" />
+    </root>
+  </artifact>
+</component>

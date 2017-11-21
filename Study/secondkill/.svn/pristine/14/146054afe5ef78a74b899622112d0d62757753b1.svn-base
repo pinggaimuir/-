@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Class-Path: commons-logging.jar htmllexer.jar spring-asm-3.2.0.M1.jar 
+ spring-context-3.2.0.M1.jar activation.jar commons-fileupload-1.2.1.j
+ ar mail.jar gson-1.6.jar htmllexer.jar activation.jar aspriseOCR.jar 
+ bson-3.4.1.jar htmlparser.jar jtds-1.2.2.jar aopalliance.jar dom4j-1.
+ 6.1.jar jsoup-1.6.1.jar morph-1.1.1.jar commons-lang.jar log4j-1.2.16
+ .jar quartz-1.6.6.jar ezmorph-1.0.5.jar commons-io-1.4.jar xmlbeans-2
+ .3.0.jar commons-logging.jar commons-pool-1.3.jar JsoupXpath-0.3.1.ja
+ r poi-3.9-20121203.jar commons-beanutils.jar commons-codec-1.6.jar co
+ mmons-dbcp-1.2.2.jar commons-httpclient.jar json-lib-2.2-jdk15.jar sp
+ ring-aop-3.2.0.M1.jar spring-asm-3.2.0.M1.jar amf-serializer-1.0.0.ja
+ r mongodb-driver-3.4.0.jar spring-core-3.2.0.M1.jar commons-logging-1
+ .0.4.jar spring-beans-3.2.0.M1.jar commons-httpclient-3.1.jar netty-a
+ ll-4.0.30.Final.jar poi-ooxml-3.9-20121203.jar spring-context-3.2.0.M
+ 1.jar commons-fileupload-1.2.1.jar mongodb-driver-core-3.4.1.jar poi-
+ examples-3.9-20121203.jar poi-excelant-3.9-20121203.jar spring-expres
+ sion-3.2.0.M1.jar poi-scratchpad-3.9-20121203.jar poi-ooxml-schemas-3
+ .9-20121203.jar selenium-server-standalone-2.39.0.jar commons-dbcp-1.
+ 2.2.jar poi-examples-3.9-20121203.jar netty-all-4.0.30.Final.jar comm
+ ons-pool-1.3.jar spring-core-3.2.0.M1.jar amf-serializer-1.0.0.jar ht
+ mlparser.jar aopalliance.jar poi-3.9-20121203.jar dom4j-1.6.1.jar sel
+ enium-server-standalone-2.39.0.jar commons-logging-1.0.4.jar commons-
+ codec-1.6.jar jtds-1.2.2.jar commons-httpclient-3.1.jar mysql-connect
+ or-java-5.1.8-bin.jar quartz-1.6.6.jar commons-io-1.4.jar poi-excelan
+ t-3.9-20121203.jar spring-beans-3.2.0.M1.jar aspriseOCR.jar log4j-1.2
+ .16.jar xmlbeans-2.3.0.jar jsoup-1.6.1.jar mail.jar poi-ooxml-3.9-201
+ 21203.jar poi-ooxml-schemas-3.9-20121203.jar spring-expression-3.2.0.
+ M1.jar poi-scratchpad-3.9-20121203.jar spring-aop-3.2.0.M1.jar
+Main-Class: cn.futures.data.importor.Main
+

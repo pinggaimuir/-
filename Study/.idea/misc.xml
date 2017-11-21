@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/compare-price" />
+    <file type="web" url="file://$PROJECT_DIR$/secondkill" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/jianjian/pom.xml" />
+        <option value="$PROJECT_DIR$/compare-price/pom.xml" />
+        <option value="$PROJECT_DIR$/secondkill/pom.xml" />
+        <option value="$PROJECT_DIR$/myarvo/pom.xml" />
+        <option value="$PROJECT_DIR$/rpctest/pom.xml" />
+        <option value="$PROJECT_DIR$/contract/pom.xml" />
+        <option value="$PROJECT_DIR$/engine1/pom.xml" />
+        <option value="$PROJECT_DIR$/engine2/pom.xml" />
+        <option value="$PROJECT_DIR$/jobtracker/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.8.0_91" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/secondkill">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="svn://59.110.241.194" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>

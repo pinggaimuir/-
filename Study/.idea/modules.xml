@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Study.iml" filepath="$PROJECT_DIR$/Study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compare-price/compare-price.iml" filepath="$PROJECT_DIR$/compare-price/compare-price.iml" />
+      <module fileurl="file://$PROJECT_DIR$/compare2/compare2.iml" filepath="$PROJECT_DIR$/compare2/compare2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/contract/contract.iml" filepath="$PROJECT_DIR$/contract/contract.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easymall/easymall.iml" filepath="$PROJECT_DIR$/easymall/easymall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/engine1/engine1.iml" filepath="$PROJECT_DIR$/engine1/engine1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/engine2/engine2.iml" filepath="$PROJECT_DIR$/engine2/engine2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generatorSqlMap/generatorSqlMap.iml" filepath="$PROJECT_DIR$/generatorSqlMap/generatorSqlMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jianjian/jianjian.iml" filepath="$PROJECT_DIR$/jianjian/jianjian.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jobtracker/jobtracker.iml" filepath="$PROJECT_DIR$/jobtracker/jobtracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myarvo/myarvo.iml" filepath="$PROJECT_DIR$/myarvo/myarvo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rpctest/rpctest.iml" filepath="$PROJECT_DIR$/rpctest/rpctest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/secondkill/secondkill.iml" filepath="$PROJECT_DIR$/secondkill/secondkill.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,6 @@
+@namespace("avro.protocol")
+protocol AddService{
+import schema "user.avsc";
+int add(int x,int y);
+void sendUser(cn.gao.User user);
+}
