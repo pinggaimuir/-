@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/logcollect/logcollect.iml" filepath="$PROJECT_DIR$/logcollect/logcollect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loghandle.iml" filepath="$PROJECT_DIR$/loghandle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pricate/pricate.iml" filepath="$PROJECT_DIR$/pricate/pricate.iml" />
+    </modules>
+  </component>
+</project>

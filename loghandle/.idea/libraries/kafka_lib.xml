@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="kafka-lib">
+    <CLASSES>
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/kafka-lib" />
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/other-lib" />
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-kafka-lib" />
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/kafka-lib" />
+      <root url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-lib" />
+    </SOURCES>
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/kafka-lib" recursive="false" />
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/other-lib" recursive="false" />
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-kafka-lib" recursive="false" />
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-lib" recursive="false" />
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/kafka-lib" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://F:/文档/笔记2/网站流量分析项目/网站流量分析项目02/源码/Flux/storm-lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
