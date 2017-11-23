@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!--Mapper开发方式：：：：-->
+<!--1、namespace的值为mapper接口的地址（全限定名）-->
+<!--2、statement的id和mapper接口中的方法名一致-->
+<!--3、接口中传入的参数类型和mappingxml中的parameterType的类型一致-->
+<!--4、接口中的返回值类型和mapper.xml中的statement的resultType指定的类型-->
+<mapper namespace="mappertest9_23.UserMapper">
+    <!--
+        1、开启mapper二级缓存总开关
+        2、开启本mapper的开关
+        3、pojo类实现序列化接口
+        -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <select id="findUserByNickname" parameterType="java.lang.String" resultType="user">
+        SELECT * FROM USER WHERE nickname=#{nickname}
+    </select>
+   <!-- /*resultType只管一条记录的类型*/-->
+    <!--parameterType只能有一个，可以使用包装类型替代，最好不要使用map-->
+    <insert id="addUser" parameterType="user">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT uuid()
+        </selectKey>
+        INSERT  INTO USER VALUES (#{id},#{username},#{password},#{nickname},#{email},#{role})
+    </insert>
+    <!--删除记录-->
+    <delete id="delUser" parameterType="java.lang.String" >
+        DELETE FROM USER WHERE nickname=#{nickname}
+    </delete>
+    <!--更新用户-->
+    <update id="updateUser" parameterType="user" >
+        UPDATE USER SET username=#{username},password=#{password},nickname=#{nickname} WHERE nickname=#{nickname}
+    </update>
+
+    <!--sql片段 ;基于单表定义sql片段，可重用性高，sql片段中不要有where-->
+    <!--foreach在遇到and（id=1 or id=2 or id=5）或者and id in(1,3,5)用-->
+    <sql id="user_sql">
+        <if test="userCustom!=null">
+            <if test="userCustom.role!=null and userCustom.role!=''">
+                and user.role=#{userCustom.role}
+            </if>
+            <if test="userCustom.nickname!=null and userCustom.nickname!=''">
+                and user.nickname like '%${userCustom.nickname}%'
+            </if>
+            <if test="ids!=null">
+                <foreach collection="ids" item="user_id" open="and (" close=")" separator="or">
+                    id=#{user_id}
+                </foreach>
+            </if>
+        </if>
+    </sql>
+    <!--综合查询 多条件
+        当查询的列名和映射的resultType中的属性至少有一个相同时 才会创建resultType所对应的对象6
+    --><!--/*where可以自动删除掉拼接条件中的第一个and*/-->
+    <select id="findUserList" parameterType="userQueryVo" resultType="UserCustom">
+        SELECT id,username FROM USER
+        <where>
+          <include refid="user_sql"/>
+        </where>
+    </select>
+    <resultMap type="user" id="userResultMap">
+        <!--
+            id 对属性的唯一标识；type domain属性； column 查询出的列名；
+            property type指定的domain类型的属性名；
+            最终resultMap对type和userResultMap作为一一对应的映射关系
+            !!! 若其他mapper要用 前面应该加namespace
+        -->
+        <!--2、将关联查询的列映射到一个pojo中(一对一)-->
+        <!--2、将关联查询的列映射到一个List<pojo>（一对多）中-->
+        <id column="id_" property="id"/><!--查询结果唯一标识，主键之类-->
+        <result column="username_" property="username"/><!--其他普通的查询结果-->
+    </resultMap>
+    <select id="findUserResult" parameterType="userQueryVo" resultMap="userResultMap">
+        SELECT id id_,username username_ FROM USER  WHERE user.role=#{userCustom.role} and user.nickname like '%${userCustom.nickname}%'
+    </select>
+
+    <select id="findUserByMultiId" parameterType="userQueryVo" resultType="userCustom">
+        SELECT * from user
+        <where>
+            <include refid="user_sql"/>
+        </where>
+    </select>
+
+    <select id="findUserById" parameterType="int" resultType="domain.User2" useCache="true">
+        SELECT *  FROM  USER WHERE id =#{id}
+    </select>
+    <insert id="addUser2" parameterType="user2">
+        INSERT INTO USER VALUES (#{id},#{username},#{sex},#{address},#{birthday})
+    </insert>
+    <update id="updateUser2" parameterType="user2">
+        UPDATE USER SET username=#{username},sex=#{sex},address=#{address} WHERE id=#{id}
+    </update>
+    <select id="selectUserOrderByAge"  resultType="user22">
+        select * from user2 order by ${value} asc
+    </select>
+</mapper>

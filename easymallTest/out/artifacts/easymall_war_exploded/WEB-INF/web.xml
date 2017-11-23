@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--*****************************************Listener*****************************************-->
+    <listener>
+        <listener-class>cn.tedu.listener.MySCListener</listener-class>
+    </listener>
+    <!--*****************************************EncodeFilter*****************************************-->
+    <filter>
+        <description>解决全站乱码问题</description>
+        <filter-name>EncodeRequest</filter-name>
+        <filter-class>cn.tedu.filter.EncodeFilter</filter-class>
+        <init-param>
+            <description>编码参数</description>
+            <param-name>encode</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodeRequest</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <!--*****************************************AutoLoginFilter*****************************************-->
+    <filter>
+        <description>30天自动登录</description>
+        <filter-name>AutoLoginFilter</filter-name>
+        <filter-class>cn.tedu.filter.AutoLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AutoLoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <!--*****************************************NoCacheFilter*****************************************-->
+    <filter>
+        <description>客户端不缓存</description>
+        <filter-name>NoCacheFilter</filter-name>
+        <filter-class>cn.tedu.filter.NoCacheFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>NoCacheFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    <!--****************************************RegistServlet******************************************-->
+    <servlet>
+        <servlet-name>RegistServlet</servlet-name>
+        <servlet-class>cn.tedu.web.RegistServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistServlet</servlet-name>
+        <url-pattern>/registServlet</url-pattern>
+    </servlet-mapping>
+    <!--**************************************AjaxCheckUserNameSerlvet********************************************-->
+    <servlet>
+        <servlet-name>CheckUserNameServlet</servlet-name>
+        <servlet-class>cn.tedu.web.CheckUserNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckUserNameServlet</servlet-name>
+        <url-pattern>/checkUserNameServlet</url-pattern>
+    </servlet-mapping>
+    <!--*************************************ValimageSerlvet*********************************************-->
+    <servlet>
+        <servlet-name>ValiImageServlet</servlet-name>
+        <servlet-class>cn.tedu.web.ValiImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ValiImageServlet</servlet-name>
+        <url-pattern>/valiImageServlet</url-pattern>
+    </servlet-mapping>
+    <!--**************************************LonginServlet********************************************-->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>cn.tedu.web.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <!--**************************************ProdImgServlet********************************************-->
+    <servlet>
+        <description>通过转发获取图片的servlet</description>
+        <servlet-name>ProdImgServlet</servlet-name>
+        <servlet-class>cn.tedu.web.ProdImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProdImgServlet</servlet-name>
+        <url-pattern>/ProdImgServlet</url-pattern>
+    </servlet-mapping>
+    <!--**************************************AjaxChangePnumServlet********************************************-->
+    <servlet>
+        <description>通过ajax技术更改商品的库存数量</description>
+        <servlet-name>AjaxChangePnumServlet</servlet-name>
+        <servlet-class>cn.tedu.web.back.AjaxChangePnumServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxChangePnumServlet</servlet-name>
+        <url-pattern>/AjaxChangePnumServlet</url-pattern>
+    </servlet-mapping>
+    <!--**************************************ProdPageServlet********************************************-->
+    <servlet>
+        <description>前台查询的商品列表</description>
+        <servlet-name>ProdPageServlet</servlet-name>
+        <servlet-class>cn.tedu.web.ProdPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProdPageServlet</servlet-name>
+        <url-pattern>/ProdPageServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

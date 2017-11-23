@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>复选框</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<script language="JavaScript"  src="../script/jquery-1.9.1.js"></script>
+	<script type="text/javascript" >
+		$(document).ready(function(){
+//			//全选
+			$("#checkall").click(function(){
+				$(":checkbox").attr("checked",true);
+			});
+			//全部选
+			$("#checkallNo").click(function(){
+				$(":checkbox").attr("checked",false);
+			});
+			//反选
+			$("#check_revsern").click(function(){
+				$(":checkbox").each(function(){
+					this.checked=!this.checked;
+				});
+			});
+		});
+	</script>
+  </head>
+  <body>
+  	您的爱好很广泛!!!
+  	 <br>
+	 <br>
+        <input type="checkbox" name="items" value="足球" />足球
+		<input type="checkbox" name="items" value="篮球"/>篮球
+		<input type="checkbox" name="items" value="游泳"/>游泳
+		<input type="checkbox" name="items" value="唱歌"/>唱歌
+		<br>
+		<input type="button" name="checkall" id="checkall" value="全选" />
+		<input type="button" name="checkall" id="checkallNo" value="全不选" />
+		<input type="button" name="checkall" id="check_revsern" value="反选" />
+  </body>
+</html>
+

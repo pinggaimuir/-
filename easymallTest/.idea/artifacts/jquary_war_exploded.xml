@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="jquary:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/jquary_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="jquary/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="jquary" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-io-1.4.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/junit.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/jstl-1.2.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-fileupload-1.2.1.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/javaee.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/mysql-connector-java-5.1.8-bin.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-dbutils-1.4.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/c3p0-0.9.1.2.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-beanutils-1.8.3.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-collections-3.2.1.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/ezmorph-1.0.6.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/json-lib-2.4-jdk15.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-lang-2.6.jar" path-in-jar="/" />
+          <element id="extracted-dir" path="$PROJECT_DIR$/easymall/web/WEB-INF/lib/commons-logging-1.1.1.jar" path-in-jar="/" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

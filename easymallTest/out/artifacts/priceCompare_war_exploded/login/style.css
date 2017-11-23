@@ -1,0 +1,23 @@
+html, body { 
+	
+	height:100%; }
+input {
+	margin-bottom: 0px !important;
+}
+.tableft {
+	display: inline-block;
+	width: 160px;
+	font-weight: bold;
+}
+.well {
+	margin-bottom:0px;
+}
+label {
+  display:inline-block;
+  margin-bottom: 0px;
+  width:100px;
+}
+.labeltext{
+	font-family:ºÚÌå;
+	font-size: 40;
+}

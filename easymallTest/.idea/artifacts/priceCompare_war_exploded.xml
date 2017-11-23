@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="priceCompare:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/priceCompare_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="priceCompare/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="priceCompare" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

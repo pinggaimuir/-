@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script language="JavaScript" src="../script/jquery-1.9.1.js"></script>
+		<title>添加用户</title>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//点击提交
+				$("#addUser").click(function(){
+					var trnode=$("<tr>");
+					trnode.append($("<td>").html($("<input>").attr("type","checkbox")));
+					trnode.append($("<td>").attr("id",$("#id").val()).text($("#id").val()));
+					trnode.append($("<td>").text($("#name").val()));
+					trnode.append($("<td>").text($("#email").val()));
+					trnode.append($("<td>").text($("#tel").val()));
+					trnode.append($("<td>").html("修改").css("cursor","pointer").click(function(){
+						var tds=$(this).siblings("td");
+						$("#id_update").val(tds[1].innerHTML);
+						$("#name_update").val(tds[2].innerHTML);
+						$("#email_update").val(tds[3].innerHTML);
+						$("#tel_update").val(tds[4].innerHTML);
+					}));
+					trnode.append($("<td>").html("删除").css("cursor","pointer").click(function(){
+						trnode.remove() ;
+					}));
+					$("#usertable").append(trnode);
+				});
+                //删除选中数据
+                $("#deleteUser").click(function(){
+                    $("input:checked:not('#allCheckbox')").parent().parent().remove();
+                });
+				//全选与全部选
+				$("#allCheckbox").click(function(){
+					$(":checkbox").prop("checked",$(this)[0].checked);
+				});
+				//修改表单提交
+				$("#updateUser").click(function(){
+					var id=$("#id_update").val();
+					var tds=$("#"+id).siblings("td");
+					tds[2].innerHTML=$("#name_update").val();
+					tds[3].innerHTML=$("#email_update").val();
+					tds[4].innerHTML=$("#tel_update").val();
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<center>
+			<br><br>
+			添加用户:<br><br>
+			ID:	<input type="text" name="id" id="id"/>&nbsp;&nbsp;
+			姓名: <input type="text" name="name" id="name" />&nbsp;&nbsp;
+			email: <input type="text" name="email" id="email" />&nbsp;&nbsp;
+			电话: <input type="text" name="tel" id="tel" /><br><br>
+			<button id="addUser">提交</button>
+			<br><br>
+			<hr>
+			<br><br>
+			<table id="usertable" border="1" cellpadding="5" cellspacing=0>
+				<tr>
+					<th><input type="checkbox" id="allCheckbox"/></th>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>email</th>
+					<th>电话</th>
+					<th>修改</th>
+					<th>删除</th>
+				</tr>
+			</table>
+			<button type="button" id="deleteUser">删除选中数据</button>
+			<br>
+			<br>
+			<br>
+			<hr>
+			修改用户:<br><br>
+			ID:<input type="text" name="name" id="id_update" readonly="readoonly"/>&nbsp;&nbsp;
+			姓名: <input type="text" name="name" id="name_update" />&nbsp;&nbsp;
+			email: <input type="text" name="email" id="email_update" />&nbsp;&nbsp;
+			电话: <input type="text" name="tel" id="tel_update" /><br><br>
+			<input type="hidden" id="id_update"/>
+			<button id="updateUser">提交</button>
+		</center>
+	</body>
+</html>
+

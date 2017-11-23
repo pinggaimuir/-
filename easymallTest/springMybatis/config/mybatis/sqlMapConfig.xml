@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- mybaitspojo别名 -->
+    <typeAliases>
+        <package name="cn.gao.po"/>
+    </typeAliases>
+
+    <!--<plugins>-->
+        <!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+            <!--&lt;!&ndash; 方言 mysql &ndash;&gt;-->
+            <!--<property name="dialect" value="mysql"/>-->
+            <!--<property name="rowBoundWithCount" value="true"/>-->
+            <!--&lt;!&ndash; 合理化 true时查询到第一页和最后一页不不会返回空，返回第一页和最后一页的信息 &ndash;&gt;-->
+            <!--<property name="reasonable" value="true"/>-->
+        <!--</plugin>-->
+    <!--</plugins>-->
+</configuration>

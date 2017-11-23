@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--        <aop:aspectj-autoproxy/>        注释用的
+        <bean id="UserManagerImpl" class="com.gao.staticaop.UserManagerImpl"></bean>
+        <bean id="SecurityHandler" class="com.gao.staticaop.SecurityHandler"></bean>
+    <aop:config>
+        <aop:aspect id="SecurityHandler" ref="SecurityHandler">
+            &lt;!&ndash;<aop:pointcut id="adduser" expression="execution(* add*(..))"/>&ndash;&gt;
+            &lt;!&ndash;对包下所有的del和add开头的方法起作用&ndash;&gt;
+            <aop:before method="checkSecurity" pointcut="execution(* com.gao.staticaop.*.add*(..))||execution(* com.gao.staticaop.*.del*(..))"/>
+            &lt;!&ndash;对包下所有的类的所有方法起作用&ndash;&gt;
+            <aop:after method="checkSecurity" pointcut="execution(* com.gao.staticaop.*.*(..))"/>
+        </aop:aspect>
+    </aop:config>-->
+<aop:aspectj-autoproxy/>
+    <context:component-scan base-package="com.gao.staticaop"/>
+</beans>

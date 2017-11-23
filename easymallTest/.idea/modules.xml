@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SalarySystem/SalarySystem.iml" filepath="$PROJECT_DIR$/SalarySystem/SalarySystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/easymall/easymall.iml" filepath="$PROJECT_DIR$/easymall/easymall.iml" />
+      <module fileurl="file://$PROJECT_DIR$/generatorSqlMap/generatorSqlMap.iml" filepath="$PROJECT_DIR$/generatorSqlMap/generatorSqlMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello/hello.iml" filepath="$PROJECT_DIR$/hello/hello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hibernate1/hibernate1.iml" filepath="$PROJECT_DIR$/hibernate1/hibernate1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ht/ht.iml" filepath="$PROJECT_DIR$/ht/ht.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jquary/jquary.iml" filepath="$PROJECT_DIR$/jquary/jquary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis/mybatis.iml" filepath="$PROJECT_DIR$/mybatis/mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/priceCompare/priceCompare.iml" filepath="$PROJECT_DIR$/priceCompare/priceCompare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/priceCompare2/priceCompare2.iml" filepath="$PROJECT_DIR$/priceCompare2/priceCompare2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reliziyuan/reliziyuan.iml" filepath="$PROJECT_DIR$/reliziyuan/reliziyuan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shoparound/shoparound.iml" filepath="$PROJECT_DIR$/shoparound/shoparound.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring1/spring1.iml" filepath="$PROJECT_DIR$/spring1/spring1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springMybatis/springMybatis.iml" filepath="$PROJECT_DIR$/springMybatis/springMybatis.iml" />
+    </modules>
+  </component>
+</project>

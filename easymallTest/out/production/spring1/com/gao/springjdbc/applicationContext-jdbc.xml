@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--配置数据源-->
+    <context:property-placeholder location="com/gao/springjdbc/jdbc.properties"/>
+    <!--<util:properties id="c3p0" location="com/gao/springjdbc/jdbc.properties" />-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${c3p0.driverClass}"/>
+        <property name="jdbcUrl" value="${c3p0.jdbcUrl}"/>
+        <property name="user" value="${c3p0.user}"/>
+        <property name="password" value="${c3p0.password}"/>
+    </bean>
+    <!--jdbc模版-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启组件扫描-->
+    <context:component-scan base-package="com.gao.springjdbc"/>
+    <!--开启自动代理-->
+    <aop:aspectj-autoproxy/>
+
+    <!--配置事物管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--配置事物通知-->
+    <!--required事物为必须的，support支持的，事物维持原状，原来有事物则添加原来的事物，否则不做任何处理-->
+    <!--1、当遇到RuntimeException时，spring默认事物回滚 2、当遇到检查宜昌市，spring默认事物不回滚-->
+    <!--required——new 每次都添加新的事物-->
+    <!--read-only="true" 加快底层的查询速度-->
+    <!--rollback-for="异常的全名" 遇到什么异常回滚-->
+    <!--no-rollback-for="异常的全名" 遇到什么杨的异常不回滚-->
+    <tx:advice transaction-manager="transactionManager" id="txAdvice">
+        <tx:attributes>
+            <tx:method name="add*" propagation="REQUIRED" rollback-for="java.sql.SQLException"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="del*" propagation="REQUIRED"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--配置事物切面-->
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(* com.gao.springjdbc.service..*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pc"/>
+    </aop:config>
+</beans>

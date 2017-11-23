@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>table练习</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script language="JavaScript" src="../../script/jquery-1.9.1.js"></script>
+	<script language="JavaScript" src="../../script/tableEdit.js"></script>
+	  <script type="text/javascript">
+		  $(document).ready(function(){
+			  var i=0;
+			  //点击奇偶行变色
+			  $("#b1").click(function(){
+				  if(i==0){
+					  $("#t1 tr:even").css("background-color", "red");
+					  $("#t1 tr:odd").css("background-color", "white");i=1;
+				  }else {
+					  $("#t1 tr:even").css("background-color", "white");
+					  $("#t1 tr:odd").css("background-color", "blue");i=0;
+				  }
+			  });
+			  //点击ID列变色
+			  $("#b2").click(function(){
+				 if(i==0){
+					 $("#t2 tr :nth-child(1)").css("background-color","yellow");i=1;
+				 } else{
+					 $("#t2 tr :nth-child(1)").css("background-color","white");i=0;
+				 }
+			  });
+			  //点击奇偶列变色
+			  $("#b3").click(function(){
+				  if(i==0){
+					  $("#t3 tr :nth-child(even)").css("background-color", "red");
+					  $("#t3 tr :nth-child(odd)").css("background-color", "white");i=1;
+				  }else {
+					  $("#t3 tr :nth-child(even)").css("background-color", "white");
+					  $("#t3 tr :nth-child(odd)").css("background-color", "blue");i=0;
+				  }
+			  });
+		  });
+	  </script>
+  </head>
+	 
+	 <body>
+    This is my HTML page. <br>
+		<table id="t1">
+			<tr>
+				<td>qwer</td>
+				<td>qwer</td>
+			</tr>
+			<tr>
+				<td>asdf</td>
+				<td>afds</td>
+			</tr>
+			<tr>
+				<td>afds</td>
+				<td>asfd</td>
+			</tr>
+			<tr>
+				<td>asfd</td>
+				<td>afds</td>
+			</tr>
+		</table>
+		<button id="b1" type="button">点击奇偶行变色</button>
+		<br>
+		<br>
+		<br>
+		
+		
+		<table id="t2">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>aaa</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>bbb</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>ccc</td>
+			</tr>
+		</table>
+		<button id="b2" type="button">点击ID列变色</button>
+		<br>
+		<br>
+		<br>
+		
+		<table id="t3">
+			<tr>
+				<td>id</td>
+				<td>name</td>
+				<td>sex</td>
+				<td>age</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>aaa</td>
+				<td>aaa</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>bbb</td>
+				<td>点对点</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>ccc</td>
+				<td>aaa</td>
+				<td>18</td>
+			</tr>
+		</table>
+		<button id="b3" type=button>点击奇偶列变色</button>
+  </body>
+   
+</html>
+
+
+

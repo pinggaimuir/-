@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test">
+    <select id="findUserById" parameterType="String" resultType="domain.User">
+        SELECT *  FROM  USER WHERE id =#{id}
+    </select>
+    <!--resultType 指定查询单条记录的类型-->
+    <!--‘%${value}%’ 为字符串不加任何修饰拼接sql语句，会引起sql注入，#｛｝为占位符-->
+    <!--${}如果传入的内容为简单类型，必须用{value} ，#{}传入内容为简单类型，#｛｝中可以任意-->
+    <select id="findUserByName" parameterType="java.lang.String" resultType="domain.User">
+        SELECT * FROM USER WHERE username LIKE '%${value}%'
+    </select>
+    <!--&lt;!&ndash;插入用户并且返回自增主键的值&ndash;&gt;  INSERT  INTO USER(id,username,password,nickname,email,role) VALUES (#{id},#{username},#{password},#{nickname},#{email},#{role})-->
+    <insert id="addUser" parameterType="domain.User">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT  INTO USER VALUES (#{id},#{username},#{password},#{nickname},#{email},#{role})
+    </insert>
+<!--    /*像数据库总插入数据并且返回非自增主键，  用UUID生成的id获得*/-->
+    <!--先使用uuid()获得主键-->
+    <!--然后把uuid主键设置到user的id中，然后在执行insert的时候从id中获取值-->
+    <insert id="addUser2" parameterType="domain.User">
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            SELECT uuid()
+        </selectKey>
+        INSERT INTO USER VALUE (#{id},#{username},#{password},#{nickname},#{email},#{role})
+    </insert>
+    <!--删除记录-->
+    <delete id="delUser" parameterType="java.lang.String" >
+        DELETE FROM USER WHERE nickname=#{nickname}
+    </delete>
+    <!--更新用户-->
+    <delete id="updateUser" parameterType="domain.User" >
+        UPDATE USER SET username=#{username},password=#{password},nickname=#{nickname} WHERE nickname=#{nickname}
+    </delete>
+</mapper>

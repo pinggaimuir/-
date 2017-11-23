@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ehcache name="shirocache">
+    <diskStore parh="java.io.tmpdir"/>
+    <cache name="passwordRetryCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="1800"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true"></cache>
+</ehcache>

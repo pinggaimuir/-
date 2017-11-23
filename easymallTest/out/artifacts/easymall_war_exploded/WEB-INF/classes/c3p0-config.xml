@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<c3p0-config>
+	<default-config>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///easymall</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+
+	</default-config>
+
+
+	<!-- This app is massive! -->
+	<named-config name="config1">
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///mydb2</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</named-config>
+	
+	<named-config name="config2">
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql:///mydb3</property>
+		<property name="user">root</property>
+		<property name="password">root</property>
+	</named-config>
+</c3p0-config>
+	
