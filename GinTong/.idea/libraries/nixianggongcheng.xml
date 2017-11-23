@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="nixianggongcheng">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/log4j-1.2.16.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/mybatis-3.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/mybatis-generator-core-1.3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/mysql-connector-java-5.1.28-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/ojdbc14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/JsoupXpath-0.3.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

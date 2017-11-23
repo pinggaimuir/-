@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="spider">
+    <CLASSES>
+      <root url="jar://F:/mydata/spiderlib/mybatis-3.2.7.jar!/" />
+      <root url="file://F:/mydata/spiderlib/dom4j" />
+      <root url="file://F:/mydata/spiderlib/jdbc jars" />
+      <root url="file://F:/mydata/spiderlib/selenium" />
+      <root url="jar://F:/mydata/spiderlib/jsoup-1.8.1.jar!/" />
+      <root url="jar://F:/mydata/spiderlib/gson-2.7.jar!/" />
+      <root url="jar://F:/mydata/spiderlib/JsoupXpath-0.3.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.4.4/jackson-core-2.4.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.4.4/jackson-databind-2.4.4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.4.4/jackson-annotations-2.4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://F:/mydata/spiderlib/dom4j" recursive="false" />
+    <jarDirectory url="file://F:/mydata/spiderlib/jdbc jars" recursive="false" />
+    <jarDirectory url="file://F:/mydata/spiderlib/selenium" recursive="false" />
+  </library>
+</component>

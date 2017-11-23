@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<KnowledgeGrab>
+
+    <!--电玩巴士-->
+    <spiderDWBS>
+        <title>//div[@class='top-info']/h4[@class='title']/p/text()</title>
+        <author>//div[@class='author']/span[@class='name']/author</author>
+        <authorurl></authorurl>>
+        <cover>//ul[@class='ui-repeater']/li[@class='ui-repeater-item']/a[@class='pic']/img/src</cover>>
+        <ptime timeFormat="yyyy MM dd">//div[@class='time']/text()</ptime>>
+        <tag></tag>>
+        <main>//div[@class='article']/p</main>>
+        <mainpic>//img/@src</mainpic>>
+        <type></type>>
+        <source>电玩巴士</source>
+        <childnext></childnext>>
+        <childnextflag></childnextflag>
+        <more></more>>
+        <moreflag></moreflag>>
+        <childLink Mosaic="http://ol.tgbus.com">//ul[@class='ui-repeater']/li[@class='ui-repeater-item']/a[@class='pic']/href</childLink>>
+        <next></next>>
+        <nextflag></nextflag>>
+        <urls>
+            <url>
+                http://ol.tgbus.com/
+
+            </url>
+            <url>
+                http://ol.tgbus.com/list/xwdt/
+            </url>>
+            <url>
+                http://ol.tgbus.com/list/wypc/
+            </url>>
+        </urls>>
+
+    </spiderDWBS>
+
+</KnowledgeGrab>

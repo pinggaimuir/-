@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gintongame.mapping.ComChangeInfoMapper">
+
+    <select id="selectChangeInfo" parameterType="java.lang.String" resultType="JavaBean.ComChangInfo">
+        select * from com_change_info where uuid=#{uuid}
+    </select>
+
+    <insert id="insertChangeInfo" parameterType="JavaBean.ComChangInfo">
+        insert into com_change_info (bid,uuid,change_time,change_item,before_change,after_change)
+        VALUES
+        (#{bid},#{uuid},#{change_time},#{change_item},#{before_change},#{after_change})
+    </insert>
+
+    <update id="updateChangeInfo" parameterType="JavaBean.ComChangInfo">
+        update com_change_info set  change_time=#{change_time},
+        before_change=#{before_change},after_change=#{after_change} where  change_item=#{change_item} and uuid=#{uuid}
+    </update>
+
+</mapper>

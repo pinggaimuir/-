@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gintongame.mapping.ComShareholderMapper">
+    <insert id="insertComShareholder" parameterType="JavaBean.ComShareholder" useGeneratedKeys="true">
+      insert into com_shareholder
+      (bid,uuid,name,investment,adress,web,investment_rate,subscription_time)
+      VALUES
+      (#{bid},#{uuid},#{name},#{investment},#{adress},#{web},#{investment_rate},#{subscription_time})
+    </insert>
+
+    <select id="selectComShareholder" parameterType="java.lang.String" resultType="JavaBean.ComShareholder">
+      select * from com_shareholder where uuid=#{uuid}
+    </select>
+
+    <update id="" parameterType="JavaBean.ComShareholder">
+        update com_shareholder set investment=#{investment},adress=#{adress},web=#{web},investment_rate=#{investment_rate},subscription_time=#{subscription_time}
+         where uuid=#{uuid} and name=#{name}
+    </update>
+</mapper>

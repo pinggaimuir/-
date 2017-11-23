@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.gintongame.mapping.ProGameInfoMapper">
+
+
+    <insert id="insertGame" parameterType="JavaBean.BasProGameInfo" useGeneratedKeys="true" >
+        insert into pro_game_info
+        (id, gname,gename,logo,version,language,network_type,suitable_age,issue_area,publisher,
+        gstyle,gtags,picture,viewpoint,engine,grade,dpprogress,gtheme,scale,pdemand,price,charge_mode,
+        develop_com,g_desc,ptime,beta_time,test_time,betatest_time,set_time,web,url,source,uuid,gamespy,
+        operator,films_time,game_size,web_update_time,download_link)
+        values
+        (#{id},#{gname},#{gename},#{logo},#{version},#{language},#{network_type},
+            #{suitable_age},#{issue_area},#{publisher},#{gstyle},#{gtags},
+            #{picture},#{viewpoint},#{engine},#{grade},#{dpprogress},#{gtheme},
+            #{scale},#{pdemand},#{price},#{charge_mode},#{develop_com},#{g_desc},
+            #{ptime},#{beta_tume},#{test_time},#{betatest_time},#{set_time},#{web},
+            #{url},#{source},#{uuid},#{gamespy},#{operator},
+            #{films_time},#{game_size},#{web_update_time},#{download_link})
+
+
+    </insert>
+
+    <select id="selectGame" parameterType="JavaBean.BasProGameInfo" resultType="String">
+        select id from pro_game_info where source=#{source} and gname=#{gname}
+    </select>
+
+    <select id="selectAllGame" parameterType="JavaBean.BasProGameInfo" resultType="String">
+        select gname from pro_game_info where source=#{source}
+    </select>
+</mapper>

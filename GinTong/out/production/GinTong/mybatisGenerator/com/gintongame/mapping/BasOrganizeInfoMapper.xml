@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.BasOrganizeInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.BasOrganizeInfo" >
+    <result column="oname" property="oname" jdbcType="VARCHAR" />
+    <result column="ename" property="ename" jdbcType="VARCHAR" />
+    <result column="shortname" property="shortname" jdbcType="VARCHAR" />
+    <result column="fullname" property="fullname" jdbcType="VARCHAR" />
+    <result column="web" property="web" jdbcType="VARCHAR" />
+    <result column="con_way" property="conWay" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="scale" property="scale" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="stime" property="stime" jdbcType="VARCHAR" />
+    <result column="other" property="other" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="financing_info" property="financingInfo" jdbcType="VARCHAR" />
+    <result column="financing_stage" property="financingStage" jdbcType="VARCHAR" />
+    <result column="company_nature" property="companyNature" jdbcType="VARCHAR" />
+    <result column="management_field" property="managementField" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="mybatisGenerator.javaBean.BasOrganizeInfoWithBLOBs" extends="BaseResultMap" >
+    <result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
+    <result column="picture" property="picture" jdbcType="LONGVARCHAR" />
+    <result column="development_history" property="developmentHistory" jdbcType="LONGVARCHAR" />
+    <result column="corporate_culture" property="corporateCulture" jdbcType="LONGVARCHAR" />
+    <result column="tag" property="tag" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    oname, ename, shortname, fullname, web, con_way, industry, scale, address, logo, 
+    stime, other, source, url, uuid, type, financing_info, financing_stage, company_nature, 
+    management_field
+  </sql>
+  <sql id="Blob_Column_List" >
+    introduce, picture, development_history, corporate_culture, tag
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="mybatisGenerator.javaBean.BasOrganizeInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bas_organize_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.BasOrganizeInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_organize_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.BasOrganizeInfoExample" >
+    delete from bas_organize_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.BasOrganizeInfoExample" resultType="java.lang.Integer" >
+    select count(*) from bas_organize_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bas_organize_info
+    <set >
+      <if test="record.oname != null" >
+        oname = #{record.oname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ename != null" >
+        ename = #{record.ename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shortname != null" >
+        shortname = #{record.shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fullname != null" >
+        fullname = #{record.fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.web != null" >
+        web = #{record.web,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conWay != null" >
+        con_way = #{record.conWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industry != null" >
+        industry = #{record.industry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scale != null" >
+        scale = #{record.scale,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.stime != null" >
+        stime = #{record.stime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.other != null" >
+        other = #{record.other,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.financingInfo != null" >
+        financing_info = #{record.financingInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.financingStage != null" >
+        financing_stage = #{record.financingStage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyNature != null" >
+        company_nature = #{record.companyNature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managementField != null" >
+        management_field = #{record.managementField,jdbcType=VARCHAR},
+      </if>
+      <if test="record.introduce != null" >
+        introduce = #{record.introduce,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.picture != null" >
+        picture = #{record.picture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.developmentHistory != null" >
+        development_history = #{record.developmentHistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.corporateCulture != null" >
+        corporate_culture = #{record.corporateCulture,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.tag != null" >
+        tag = #{record.tag,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update bas_organize_info
+    set oname = #{record.oname,jdbcType=VARCHAR},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      shortname = #{record.shortname,jdbcType=VARCHAR},
+      fullname = #{record.fullname,jdbcType=VARCHAR},
+      web = #{record.web,jdbcType=VARCHAR},
+      con_way = #{record.conWay,jdbcType=VARCHAR},
+      industry = #{record.industry,jdbcType=VARCHAR},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      stime = #{record.stime,jdbcType=VARCHAR},
+      other = #{record.other,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      financing_info = #{record.financingInfo,jdbcType=VARCHAR},
+      financing_stage = #{record.financingStage,jdbcType=VARCHAR},
+      company_nature = #{record.companyNature,jdbcType=VARCHAR},
+      management_field = #{record.managementField,jdbcType=VARCHAR},
+      introduce = #{record.introduce,jdbcType=LONGVARCHAR},
+      picture = #{record.picture,jdbcType=LONGVARCHAR},
+      development_history = #{record.developmentHistory,jdbcType=LONGVARCHAR},
+      corporate_culture = #{record.corporateCulture,jdbcType=LONGVARCHAR},
+      tag = #{record.tag,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bas_organize_info
+    set oname = #{record.oname,jdbcType=VARCHAR},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      shortname = #{record.shortname,jdbcType=VARCHAR},
+      fullname = #{record.fullname,jdbcType=VARCHAR},
+      web = #{record.web,jdbcType=VARCHAR},
+      con_way = #{record.conWay,jdbcType=VARCHAR},
+      industry = #{record.industry,jdbcType=VARCHAR},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      stime = #{record.stime,jdbcType=VARCHAR},
+      other = #{record.other,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      financing_info = #{record.financingInfo,jdbcType=VARCHAR},
+      financing_stage = #{record.financingStage,jdbcType=VARCHAR},
+      company_nature = #{record.companyNature,jdbcType=VARCHAR},
+      management_field = #{record.managementField,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

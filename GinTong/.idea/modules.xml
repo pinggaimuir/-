@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GeneratorConfigMap/GeneratorConfigMap.iml" filepath="$PROJECT_DIR$/GeneratorConfigMap/GeneratorConfigMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WorkTest.iml" filepath="$PROJECT_DIR$/WorkTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/legalplatform/legalplatform.iml" filepath="$PROJECT_DIR$/legalplatform/legalplatform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spiderhbase/spiderhbase.iml" filepath="$PROJECT_DIR$/spiderhbase/spiderhbase.iml" />
+    </modules>
+  </component>
+</project>

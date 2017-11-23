@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gintongame.mapping.BasOrganizeInfoMapper">
+
+    <insert id="insertBatch" parameterType="java.util.ArrayList" useGeneratedKeys="true" >
+        insert into bas_organize_info(oname,ename,shortname,fullname,web,con_way,industry,scale,introduce,address,logo,stime,other,source,url,uuid,type,financing_info,picture,development_history,financing_stage,company_nature,corporate_culture,tag,management_field)
+        values
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            (#{item.oname},#{item.ename},#{item.shortname},#{item.fullname},#{item.web},#{item.con_way},#{item.industry},#{item.scale},#{item.introduce},#{item.address},#{item.logo},#{item.stime},#{item.other},#{item.source},#{item.url},#{item.uuid},#{item.type},#{item.financing_info},#{item.picture},#{item.development_history},#{item.financing_stage},#{item.company_nature},#{item.corporate_culture},#{item.tag},#{item.management_field})
+        </foreach>
+
+    </insert>
+    <!--单条插入 丁全彬-->
+    <insert id="insertSingle" parameterType="JavaBean.BasOrganizeInfo"  useGeneratedKeys="true">
+        insert into bas_organize_info(oname,ename,shortname,fullname,web,con_way,industry,scale,introduce,address,logo,stime,other,source,url,uuid,financing_round,picture,development_history,financing_stage,company_nature,corporate_culture,tag,management_field,financing_total,business_plan)
+        values
+        (#{oname},#{ename},#{shortname},#{fullname},#{web},#{con_way},#{industry},#{scale},#{introduce},#{address},#{logo},#{stime},#{other},#{source},#{url},#{uuid},#{financing_round},#{picture},#{development_history},#{financing_stage},#{company_nature},#{corporate_culture},#{tag},#{management_field},#{financing_total},#{business_plan})
+
+    </insert>
+
+    <!--单条插入-->
+    <insert id="insert" parameterType="JavaBean.BasOrganizeInfo" >
+        insert into bas_organize_info (oname, ename, shortname,
+        fullname, web, con_way,
+        industry, scale, address,
+        logo, stime, other,
+        source, url, uuid, type,
+        financing_info, financing_stage, company_nature,
+        management_field, introduce, picture,
+        development_history, corporate_culture,
+        tag)
+        values (#{oname,jdbcType=VARCHAR}, #{ename,jdbcType=VARCHAR}, #{shortname,jdbcType=VARCHAR},
+        #{fullname,jdbcType=VARCHAR}, #{web,jdbcType=VARCHAR}, #{conWay,jdbcType=VARCHAR},
+        #{industry,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+        #{logo,jdbcType=VARCHAR}, #{stime,jdbcType=VARCHAR}, #{other,jdbcType=VARCHAR},
+        #{source,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{uuid,jdbcType=CHAR}, #{type,jdbcType=TINYINT},
+        #{financingInfo,jdbcType=VARCHAR}, #{financingStage,jdbcType=VARCHAR}, #{companyNature,jdbcType=VARCHAR},
+        #{managementField,jdbcType=VARCHAR}, #{introduce,jdbcType=LONGVARCHAR}, #{picture,jdbcType=LONGVARCHAR},
+        #{developmentHistory,jdbcType=LONGVARCHAR}, #{corporateCulture,jdbcType=LONGVARCHAR},
+        #{tag,jdbcType=LONGVARCHAR})
+    </insert>
+
+
+    <select id="selectOrganId" parameterType="java.lang.String" resultType="String">
+        select id from bas_organize_info where uuid=#{uuid}
+    </select>
+
+
+    <select id="selectList" parameterType="java.lang.String"  resultType="JavaBean.BasOrganizeInfo">
+        select * from bas_organize_info where uuid=#{uuid}
+    </select>
+
+    <update id="updateOrgan" parameterType="JavaBean.BasOrganizeInfo">
+        update bas_organize_info set oname=#{oname}, ename=#{ename}, shortname=#{shortname},
+        fullname=#{fullname}, web=#{web}, con_way=#{con_way},
+        industry=#{industry}, scale=#{scale}, address=#{address},
+        logo=#{logo}, stime=#{stime}, other=#{other},
+        source=#{source}, url=#{url}, type=#{type},
+         financing_stage=#{financing_stage}, company_nature=#{company_nature},
+        management_field=#{management_field}, introduce=#{introduce}, picture=#{picture},
+        development_history=#{development_history}, corporate_culture=#{corporate_culture},
+        tag=#{tag} where uuid=#{uuid}
+    </update>
+
+
+</mapper>

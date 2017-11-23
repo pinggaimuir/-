@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gintongame.mapping.PerWorkInfoMapper">
+
+    <insert id="insertPerWorkInfo" parameterType="JavaBean.PerWorkInfo" useGeneratedKeys="true">
+        insert into per_work_info(uuid,oname,department,job,level,job_early,work_time,wtype,company_addr,oph,income,w_desc,start_time,end_time) values(
+      #{uuid},#{oname},#{department},#{job},#{level},#{job_early},#{work_time},#{wtype},#{company_addr},#{oph},#{income},#{w_desc},#{start_time},#{end_time}
+        );
+    </insert>
+
+    <select id="selectPerWorkInfoBySource" parameterType="java.lang.String" resultType="JavaBean.PerWorkInfo">
+       select * from bas_person_info bpi,per_work_info pwi where bpi.uuid=pwi.uuid and pwi.work_time is not null and source=#{source}
+    </select>
+
+    <update id="updatePerWorkDate" parameterType="JavaBean.PerWorkInfo">
+        update per_work_info set uuid,oname=,department,job,level,job_early,work_time,wtype,company_addr,oph,income,w_desc,start_time,end_time
+    </update>
+
+</mapper>

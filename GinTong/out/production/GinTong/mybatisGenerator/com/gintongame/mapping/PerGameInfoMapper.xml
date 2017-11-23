@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.PerGameInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.PerGameInfo" >
+    <result column="gname" property="gname" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="rolename" property="rolename" jdbcType="VARCHAR" />
+    <result column="achievement" property="achievement" jdbcType="VARCHAR" />
+    <result column="lvl" property="lvl" jdbcType="VARCHAR" />
+    <result column="gang" property="gang" jdbcType="VARCHAR" />
+    <result column="speech" property="speech" jdbcType="VARCHAR" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="consume" property="consume" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="mybatisGenerator.javaBean.PerGameInfo" extends="BaseResultMap" >
+    <result column="game_exp" property="gameExp" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    gname, area, rolename, achievement, lvl, gang, speech, start_time, consume, uuid
+  </sql>
+  <sql id="Blob_Column_List" >
+    game_exp
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="mybatisGenerator.javaBean.PerGameInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from per_game_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.PerGameInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from per_game_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.PerGameInfoExample" >
+    delete from per_game_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.PerGameInfo" >
+    insert into per_game_info (gname, area, rolename, 
+      achievement, lvl, gang, 
+      speech, start_time, consume, 
+      uuid, game_exp)
+    values (#{gname,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{rolename,jdbcType=VARCHAR}, 
+      #{achievement,jdbcType=VARCHAR}, #{lvl,jdbcType=VARCHAR}, #{gang,jdbcType=VARCHAR}, 
+      #{speech,jdbcType=VARCHAR}, #{startTime,jdbcType=TIMESTAMP}, #{consume,jdbcType=VARCHAR}, 
+      #{uuid,jdbcType=CHAR}, #{gameExp,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.PerGameInfo" >
+    insert into per_game_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gname != null" >
+        gname,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="rolename != null" >
+        rolename,
+      </if>
+      <if test="achievement != null" >
+        achievement,
+      </if>
+      <if test="lvl != null" >
+        lvl,
+      </if>
+      <if test="gang != null" >
+        gang,
+      </if>
+      <if test="speech != null" >
+        speech,
+      </if>
+      <if test="startTime != null" >
+        start_time,
+      </if>
+      <if test="consume != null" >
+        consume,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="gameExp != null" >
+        game_exp,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gname != null" >
+        #{gname,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="rolename != null" >
+        #{rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="achievement != null" >
+        #{achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="lvl != null" >
+        #{lvl,jdbcType=VARCHAR},
+      </if>
+      <if test="gang != null" >
+        #{gang,jdbcType=VARCHAR},
+      </if>
+      <if test="speech != null" >
+        #{speech,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="consume != null" >
+        #{consume,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="gameExp != null" >
+        #{gameExp,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.PerGameInfoExample" resultType="java.lang.Integer" >
+    select count(*) from per_game_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update per_game_info
+    <set >
+      <if test="record.gname != null" >
+        gname = #{record.gname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null" >
+        area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rolename != null" >
+        rolename = #{record.rolename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.achievement != null" >
+        achievement = #{record.achievement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lvl != null" >
+        lvl = #{record.lvl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gang != null" >
+        gang = #{record.gang,jdbcType=VARCHAR},
+      </if>
+      <if test="record.speech != null" >
+        speech = #{record.speech,jdbcType=VARCHAR},
+      </if>
+      <if test="record.startTime != null" >
+        start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.consume != null" >
+        consume = #{record.consume,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.gameExp != null" >
+        game_exp = #{record.gameExp,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update per_game_info
+    set gname = #{record.gname,jdbcType=VARCHAR},
+      area = #{record.area,jdbcType=VARCHAR},
+      rolename = #{record.rolename,jdbcType=VARCHAR},
+      achievement = #{record.achievement,jdbcType=VARCHAR},
+      lvl = #{record.lvl,jdbcType=VARCHAR},
+      gang = #{record.gang,jdbcType=VARCHAR},
+      speech = #{record.speech,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      consume = #{record.consume,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      game_exp = #{record.gameExp,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update per_game_info
+    set gname = #{record.gname,jdbcType=VARCHAR},
+      area = #{record.area,jdbcType=VARCHAR},
+      rolename = #{record.rolename,jdbcType=VARCHAR},
+      achievement = #{record.achievement,jdbcType=VARCHAR},
+      lvl = #{record.lvl,jdbcType=VARCHAR},
+      gang = #{record.gang,jdbcType=VARCHAR},
+      speech = #{record.speech,jdbcType=VARCHAR},
+      start_time = #{record.startTime,jdbcType=TIMESTAMP},
+      consume = #{record.consume,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

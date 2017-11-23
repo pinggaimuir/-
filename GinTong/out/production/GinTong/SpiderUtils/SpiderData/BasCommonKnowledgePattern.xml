@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BasCommonKnowledgeSpiderPattern>
+
+    <!-- 命名跟数据库字段一致 -->
+    <spiderUrl>
+        <flag>selenium</flag>
+        <ptime></ptime>
+        <childLink join="">//div[@id='articleList']/li/a/@href</childLink>
+        <nextPage join="">$('#page-next').click()</nextPage>
+        <urls>
+            <!--<url page="75">-->
+                <!--http://search.ifeng.com/sofeng/search.action?q=%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90&amp;c=1&amp;p=$(page)-->
+            <!--</url>-->
+            <!--<url page="75">-->
+                <!--http://search.ifeng.com/sofeng/search.action?q=激励制度&amp;c=1&amp;chel=&amp;p=$(page)-->
+            <!--</url>-->
+            <!--<url page="45">-->
+                <!--http://www.tophr.net/news/newslist.asp?id=23&amp;page=$(page)-->
+            <!--</url>-->
+            <!--<url>-->
+                <!--http://mp.sohu.com/profile?xpt=cHBhZzc0NDQ5ZmQ3NDBhMUBzb2h1LmNvbQ==-->
+            <!--</url>-->
+            <url>
+                http://www.zqcn.com.cn/guanli/col21.html
+            </url>
+        </urls>
+    </spiderUrl>
+    <spider36DSJ>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//div[@class='focus']/a[@class='thumbnail']/@href</childLink>
+        <nextPage join="">//li[@class='next-page']/a/@href</nextPage>
+        <urls>
+            <url>
+                http://www.36dsj.com/
+            </url>
+        </urls>
+    </spider36DSJ>
+    <!--大学生毕业网招聘   -->
+    <spiderYJSBYW>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//dl[@class='newlist']/dd/p/a/@href</childLink>
+        <nextPage join="http://yjbys.com/hr/zhaopin/">//li[@class='next-page']/a/@href</nextPage>
+        <urls>
+            <url>
+                http://yjbys.com/hr/zhaopin/
+            </url>
+        </urls>
+    </spiderYJSBYW>
+    <!--大学生毕业网  员工管理-->
+    <siderYJSBYWGL>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//dl[@class='newlist']/dd/p/a/@href</childLink>
+        <nextPage join="http://yjbys.com/hr/yuangongguanli/">//li[@class='next-page']/a[text()*=下一页'']/@href</nextPage>
+        <urls>
+            <url>
+                http://yjbys.com/hr/yuangongguanli/
+            </url>
+        </urls>
+    </siderYJSBYWGL>
+    <spiderHRBar>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="http://www.hrbar.com">//div[@class='topictitle']/a/@href</childLink>
+        <nextPage join=""></nextPage>
+        <urls>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=f6b1332a-9fcd-4387-af4c-f8ba79766bbc
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=0b9687a9-522e-429b-bc97-e36c9bba7f7e
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=6c1560b6-d868-4fe1-8870-370e0dc5c8e8
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=1fc8e101-217e-4f96-83bb-0507e2271330
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=055c8fc0-3c97-4066-8267-f939d52337fd
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=ccda126f-46a4-4fc6-91ba-ea1057dbe886
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=6b128e89-63d0-4e43-8cfe-1f4ebe9c31ec
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=efc09977-d37d-4ab5-bc2c-d693a70a23c2
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=e7157959-a9cd-4f3a-b1f3-0f096ef13acd
+            </url>
+            <url>
+                http://www.hrbar.com/stindex.htm?c=d5e6c1ac-7a33-44fc-b1d9-d0af929fa720
+            </url>
+        </urls>
+    </spiderHRBar>
+    <spiderZGRLZYW>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="http://www.rlzygl.com/">//ul[@class='new_list']/li/a/@href</childLink>
+        <nextPage join="http://www.rlzygl.com/">//p[@id='pages']/a[3]/@href</nextPage>
+        <urls>
+            <url page="3">
+                http://www.rlzygl.com/rlzypz/$(page).html
+            </url>
+            <url page="2">
+                http://www.rlzygl.com/zppx/$(page).html
+            </url>
+            <url page="2">
+                http://www.rlzygl.com/jxgl/$(page).html
+            </url>
+            <url page="2">
+                http://www.rlzygl.com/xcgl/$(page).html
+            </url>
+            <url page="3">
+                http://www.rlzygl.com/ldgx/$(page).html
+            </url>
+            <url page="1">
+                http://www.rlzygl.com/rzzc/$(page).html
+            </url>
+        </urls>
+    </spiderZGRLZYW>
+    <spiderHR369>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//ul[@class='list lh24 f14 snewlist']/li/a/@href</childLink>
+        <nextPage join=""></nextPage>
+        <urls>
+            <url page="461">
+                http://news.hr369.com/zixun/$(page).html
+            </url>
+        </urls>
+    </spiderHR369>
+<<<<<<< HEAD
+
+=======
+    <spiderGHR>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//article[@class='item-list']/h2/a/@href</childLink>
+        <nextPage join=""></nextPage>
+        <urls>
+            <url page="491">
+                http://www.ghrlib.com/page/$(page)
+            </url>
+        </urls>
+    </spiderGHR>
+>>>>>>> 070e1ae2283073df890981561750685dd0556467
+    <SpiderHrsalon>
+        <flag>jsoup</flag>
+        <ptime></ptime>
+        <childLink join="">//div[@class='post-thumbnail']/a/@href</childLink>
+        <nextPage join=""></nextPage>
+        <urls>
+            <url page="2203">
+                http://News.hrsalon.org/page/$(page)
+            </url>
+        </urls>
+    </SpiderHrsalon>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 070e1ae2283073df890981561750685dd0556467
+</BasCommonKnowledgeSpiderPattern>

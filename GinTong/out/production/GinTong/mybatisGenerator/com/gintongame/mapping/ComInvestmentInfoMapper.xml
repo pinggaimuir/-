@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.ComInvestmentInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.ComInvestmentInfo" >
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+    <result column="oname" property="oname" jdbcType="VARCHAR" />
+    <result column="legal_persen" property="legalPersen" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="investment" property="investment" jdbcType="VARCHAR" />
+    <result column="web" property="web" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    bid, uuid, oname, legal_persen, industry, state, investment, web
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.Bean.ComInvestmentInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from com_investment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.Bean.ComInvestmentInfoExample" >
+    delete from com_investment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.Bean.ComInvestmentInfo" >
+    insert into com_investment_info (bid, uuid, oname, 
+      legal_persen, industry, state, 
+      investment, web)
+    values (#{bid,jdbcType=INTEGER}, #{uuid,jdbcType=CHAR}, #{oname,jdbcType=VARCHAR}, 
+      #{legalPersen,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{state,jdbcType=TINYINT}, 
+      #{investment,jdbcType=VARCHAR}, #{web,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.Bean.ComInvestmentInfo" >
+    insert into com_investment_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        bid,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="oname != null" >
+        oname,
+      </if>
+      <if test="legalPersen != null" >
+        legal_persen,
+      </if>
+      <if test="industry != null" >
+        industry,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="investment != null" >
+        investment,
+      </if>
+      <if test="web != null" >
+        web,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="oname != null" >
+        #{oname,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPersen != null" >
+        #{legalPersen,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="investment != null" >
+        #{investment,jdbcType=VARCHAR},
+      </if>
+      <if test="web != null" >
+        #{web,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.Bean.ComInvestmentInfoExample" resultType="java.lang.Integer" >
+    select count(*) from com_investment_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update com_investment_info
+    <set >
+      <if test="record.bid != null" >
+        bid = #{record.bid,jdbcType=INTEGER},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.oname != null" >
+        oname = #{record.oname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.legalPersen != null" >
+        legal_persen = #{record.legalPersen,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industry != null" >
+        industry = #{record.industry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=TINYINT},
+      </if>
+      <if test="record.investment != null" >
+        investment = #{record.investment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.web != null" >
+        web = #{record.web,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update com_investment_info
+    set bid = #{record.bid,jdbcType=INTEGER},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      oname = #{record.oname,jdbcType=VARCHAR},
+      legal_persen = #{record.legalPersen,jdbcType=VARCHAR},
+      industry = #{record.industry,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=TINYINT},
+      investment = #{record.investment,jdbcType=VARCHAR},
+      web = #{record.web,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CommonMobileGamesProductPattern>
+    <spider>
+        <!--游戏logo-->
+        <logo  join="">//div[@class='yxtopjs']/a/img/@src</logo>
+        <!--游戏标题-->
+        <title>//p[@class='gamtitle subscribeObj']/font/text()</title>
+        <!--游戏平台-->
+        <platform>//span[@class='yxpint']/i/@title</platform>
+        <!--游戏时间-->
+        <ptime>//p[@class='gamejsbq']/em/text()</ptime>
+        <!--游戏类型-->
+        <tag>//span[@class='youxbq']/i/text()</tag>
+        <!--运营商-->
+        <operator>//p[@class='gamejsbq yxgw']/a/text()</operator>
+        <!--安卓下载链接-->
+        <down_Link_and  join="">//div[@class='androiddown']/a/@href</down_Link_and>
+        <!--ios下载链接-->
+        <down_Link_ios  join=""></down_Link_ios>
+        <!--游戏正文-->
+        <content>//div[@class='gamesummary']/p</content>
+        <!--游戏截图-->
+        <contentPic join="">//div[@class='gameimg']/ul/li/a/@href</contentPic>
+        <!--游戏类型  手游 页游  端游-->
+        <type>手游</type>
+        <!--详情页链接-->
+        <childLink join="">//div[@class='fr game_dq_detail m_t15']/a/@href</childLink>
+        <!--下一页-->
+        <nextPage join="http://game.kaifu.com/">//span[@class='next']/a/@href</nextPage>
+        <!--数据源-->
+        <source>开服网</source>
+    </spider>
+
+</CommonMobileGamesProductPattern>

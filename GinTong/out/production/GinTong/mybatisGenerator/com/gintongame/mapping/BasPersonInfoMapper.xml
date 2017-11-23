@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.BasPersonInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.BasPersonInfo" >
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="enname" property="enname" jdbcType="VARCHAR" />
+    <result column="age" property="age" jdbcType="SMALLINT" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="hometown" property="hometown" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="con_way" property="conWay" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
+    <result column="id_number" property="idNumber" jdbcType="CHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="household_register" property="householdRegister" jdbcType="VARCHAR" />
+    <result column="liveplace" property="liveplace" jdbcType="VARCHAR" />
+    <result column="marital_status" property="maritalStatus" jdbcType="TINYINT" />
+    <result column="employment" property="employment" jdbcType="TINYINT" />
+    <result column="diploma" property="diploma" jdbcType="VARCHAR" />
+    <result column="work_years" property="workYears" jdbcType="VARCHAR" />
+    <result column="child_status" property="childStatus" jdbcType="TINYINT" />
+    <result column="live_photo" property="livePhoto" jdbcType="VARCHAR" />
+    <result column="occu_photo" property="occuPhoto" jdbcType="VARCHAR" />
+    <result column="art_photo" property="artPhoto" jdbcType="VARCHAR" />
+    <result column="ptag" property="ptag" jdbcType="VARCHAR" />
+    <result column="lastuptime" property="lastuptime" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="mybatisGenerator.javaBean.BasPersonInfoWithBLOBs" extends="BaseResultMap" >
+    <result column="p_desc" property="pDesc" jdbcType="LONGVARCHAR" />
+    <result column="advantage" property="advantage" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    uuid, name, enname, age, alias, hometown, country, nation, con_way, sex, id_number, 
+    birthday, household_register, liveplace, marital_status, employment, diploma, work_years, 
+    child_status, live_photo, occu_photo, art_photo, ptag, lastuptime, source, url, type
+  </sql>
+  <sql id="Blob_Column_List" >
+    p_desc, advantage
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="mybatisGenerator.javaBean.BasPersonInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from bas_person_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.BasPersonInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from bas_person_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.BasPersonInfoExample" >
+    delete from bas_person_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.BasPersonInfoWithBLOBs" >
+    insert into bas_person_info (uuid, name, enname, 
+      age, alias, hometown, 
+      country, nation, con_way, 
+      sex, id_number, birthday, household_register, 
+      liveplace, marital_status, employment, 
+      diploma, work_years, child_status, 
+      live_photo, occu_photo, art_photo, 
+      ptag, lastuptime, source, 
+      url, type, p_desc, 
+      advantage)
+    values (#{uuid,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{enname,jdbcType=VARCHAR}, 
+      #{age,jdbcType=SMALLINT}, #{alias,jdbcType=VARCHAR}, #{hometown,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{conWay,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{idNumber,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, #{householdRegister,jdbcType=VARCHAR}, 
+      #{liveplace,jdbcType=VARCHAR}, #{maritalStatus,jdbcType=TINYINT}, #{employment,jdbcType=TINYINT}, 
+      #{diploma,jdbcType=VARCHAR}, #{workYears,jdbcType=VARCHAR}, #{childStatus,jdbcType=TINYINT}, 
+      #{livePhoto,jdbcType=VARCHAR}, #{occuPhoto,jdbcType=VARCHAR}, #{artPhoto,jdbcType=VARCHAR}, 
+      #{ptag,jdbcType=VARCHAR}, #{lastuptime,jdbcType=TIMESTAMP}, #{source,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{pDesc,jdbcType=LONGVARCHAR}, 
+      #{advantage,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.BasPersonInfoWithBLOBs" >
+    insert into bas_person_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="enname != null" >
+        enname,
+      </if>
+      <if test="age != null" >
+        age,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="hometown != null" >
+        hometown,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="conWay != null" >
+        con_way,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="idNumber != null" >
+        id_number,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="householdRegister != null" >
+        household_register,
+      </if>
+      <if test="liveplace != null" >
+        liveplace,
+      </if>
+      <if test="maritalStatus != null" >
+        marital_status,
+      </if>
+      <if test="employment != null" >
+        employment,
+      </if>
+      <if test="diploma != null" >
+        diploma,
+      </if>
+      <if test="workYears != null" >
+        work_years,
+      </if>
+      <if test="childStatus != null" >
+        child_status,
+      </if>
+      <if test="livePhoto != null" >
+        live_photo,
+      </if>
+      <if test="occuPhoto != null" >
+        occu_photo,
+      </if>
+      <if test="artPhoto != null" >
+        art_photo,
+      </if>
+      <if test="ptag != null" >
+        ptag,
+      </if>
+      <if test="lastuptime != null" >
+        lastuptime,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="pDesc != null" >
+        p_desc,
+      </if>
+      <if test="advantage != null" >
+        advantage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enname != null" >
+        #{enname,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=SMALLINT},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null" >
+        #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="conWay != null" >
+        #{conWay,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
+      </if>
+      <if test="idNumber != null" >
+        #{idNumber,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="householdRegister != null" >
+        #{householdRegister,jdbcType=VARCHAR},
+      </if>
+      <if test="liveplace != null" >
+        #{liveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalStatus != null" >
+        #{maritalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="employment != null" >
+        #{employment,jdbcType=TINYINT},
+      </if>
+      <if test="diploma != null" >
+        #{diploma,jdbcType=VARCHAR},
+      </if>
+      <if test="workYears != null" >
+        #{workYears,jdbcType=VARCHAR},
+      </if>
+      <if test="childStatus != null" >
+        #{childStatus,jdbcType=TINYINT},
+      </if>
+      <if test="livePhoto != null" >
+        #{livePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="occuPhoto != null" >
+        #{occuPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="artPhoto != null" >
+        #{artPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="ptag != null" >
+        #{ptag,jdbcType=VARCHAR},
+      </if>
+      <if test="lastuptime != null" >
+        #{lastuptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="pDesc != null" >
+        #{pDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="advantage != null" >
+        #{advantage,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.BasPersonInfoExample" resultType="java.lang.Integer" >
+    select count(*) from bas_person_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update bas_person_info
+    <set >
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enname != null" >
+        enname = #{record.enname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null" >
+        age = #{record.age,jdbcType=SMALLINT},
+      </if>
+      <if test="record.alias != null" >
+        alias = #{record.alias,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hometown != null" >
+        hometown = #{record.hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null" >
+        nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conWay != null" >
+        con_way = #{record.conWay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=CHAR},
+      </if>
+      <if test="record.idNumber != null" >
+        id_number = #{record.idNumber,jdbcType=CHAR},
+      </if>
+      <if test="record.birthday != null" >
+        birthday = #{record.birthday,jdbcType=DATE},
+      </if>
+      <if test="record.householdRegister != null" >
+        household_register = #{record.householdRegister,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveplace != null" >
+        liveplace = #{record.liveplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maritalStatus != null" >
+        marital_status = #{record.maritalStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.employment != null" >
+        employment = #{record.employment,jdbcType=TINYINT},
+      </if>
+      <if test="record.diploma != null" >
+        diploma = #{record.diploma,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workYears != null" >
+        work_years = #{record.workYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.childStatus != null" >
+        child_status = #{record.childStatus,jdbcType=TINYINT},
+      </if>
+      <if test="record.livePhoto != null" >
+        live_photo = #{record.livePhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occuPhoto != null" >
+        occu_photo = #{record.occuPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.artPhoto != null" >
+        art_photo = #{record.artPhoto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptag != null" >
+        ptag = #{record.ptag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lastuptime != null" >
+        lastuptime = #{record.lastuptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.pDesc != null" >
+        p_desc = #{record.pDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.advantage != null" >
+        advantage = #{record.advantage,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update bas_person_info
+    set uuid = #{record.uuid,jdbcType=CHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      enname = #{record.enname,jdbcType=VARCHAR},
+      age = #{record.age,jdbcType=SMALLINT},
+      alias = #{record.alias,jdbcType=VARCHAR},
+      hometown = #{record.hometown,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      con_way = #{record.conWay,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=CHAR},
+      id_number = #{record.idNumber,jdbcType=CHAR},
+      birthday = #{record.birthday,jdbcType=DATE},
+      household_register = #{record.householdRegister,jdbcType=VARCHAR},
+      liveplace = #{record.liveplace,jdbcType=VARCHAR},
+      marital_status = #{record.maritalStatus,jdbcType=TINYINT},
+      employment = #{record.employment,jdbcType=TINYINT},
+      diploma = #{record.diploma,jdbcType=VARCHAR},
+      work_years = #{record.workYears,jdbcType=VARCHAR},
+      child_status = #{record.childStatus,jdbcType=TINYINT},
+      live_photo = #{record.livePhoto,jdbcType=VARCHAR},
+      occu_photo = #{record.occuPhoto,jdbcType=VARCHAR},
+      art_photo = #{record.artPhoto,jdbcType=VARCHAR},
+      ptag = #{record.ptag,jdbcType=VARCHAR},
+      lastuptime = #{record.lastuptime,jdbcType=TIMESTAMP},
+      source = #{record.source,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      p_desc = #{record.pDesc,jdbcType=LONGVARCHAR},
+      advantage = #{record.advantage,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update bas_person_info
+    set uuid = #{record.uuid,jdbcType=CHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      enname = #{record.enname,jdbcType=VARCHAR},
+      age = #{record.age,jdbcType=SMALLINT},
+      alias = #{record.alias,jdbcType=VARCHAR},
+      hometown = #{record.hometown,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=VARCHAR},
+      nation = #{record.nation,jdbcType=VARCHAR},
+      con_way = #{record.conWay,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=CHAR},
+      id_number = #{record.idNumber,jdbcType=CHAR},
+      birthday = #{record.birthday,jdbcType=DATE},
+      household_register = #{record.householdRegister,jdbcType=VARCHAR},
+      liveplace = #{record.liveplace,jdbcType=VARCHAR},
+      marital_status = #{record.maritalStatus,jdbcType=TINYINT},
+      employment = #{record.employment,jdbcType=TINYINT},
+      diploma = #{record.diploma,jdbcType=VARCHAR},
+      work_years = #{record.workYears,jdbcType=VARCHAR},
+      child_status = #{record.childStatus,jdbcType=TINYINT},
+      live_photo = #{record.livePhoto,jdbcType=VARCHAR},
+      occu_photo = #{record.occuPhoto,jdbcType=VARCHAR},
+      art_photo = #{record.artPhoto,jdbcType=VARCHAR},
+      ptag = #{record.ptag,jdbcType=VARCHAR},
+      lastuptime = #{record.lastuptime,jdbcType=TIMESTAMP},
+      source = #{record.source,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

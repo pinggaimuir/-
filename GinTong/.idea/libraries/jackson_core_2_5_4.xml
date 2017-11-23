@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jackson-core-2.5.4">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/jackson-core-2.5.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/jackson-databind-2.5.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/GeneratorConfigMap/klib/jackson-annotations-2.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

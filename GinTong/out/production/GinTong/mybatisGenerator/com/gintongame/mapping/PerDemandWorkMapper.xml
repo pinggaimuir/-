@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.PerDemandWorkMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.PerDemandWork" >
+    <result column="dplace" property="dplace" jdbcType="VARCHAR" />
+    <result column="jtype" property="jtype" jdbcType="VARCHAR" />
+    <result column="dpay" property="dpay" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="VARCHAR" />
+    <result column="djob" property="djob" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    dplace, jtype, dpay, industry, djob, uuid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.PerDemandWorkExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from per_demand_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.PerDemandWorkExample" >
+    delete from per_demand_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.PerDemandWork" >
+    insert into per_demand_work (dplace, jtype, dpay, 
+      industry, djob, uuid)
+    values (#{dplace,jdbcType=VARCHAR}, #{jtype,jdbcType=VARCHAR}, #{dpay,jdbcType=VARCHAR}, 
+      #{industry,jdbcType=VARCHAR}, #{djob,jdbcType=VARCHAR}, #{uuid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.PerDemandWork" >
+    insert into per_demand_work
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dplace != null" >
+        dplace,
+      </if>
+      <if test="jtype != null" >
+        jtype,
+      </if>
+      <if test="dpay != null" >
+        dpay,
+      </if>
+      <if test="industry != null" >
+        industry,
+      </if>
+      <if test="djob != null" >
+        djob,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dplace != null" >
+        #{dplace,jdbcType=VARCHAR},
+      </if>
+      <if test="jtype != null" >
+        #{jtype,jdbcType=VARCHAR},
+      </if>
+      <if test="dpay != null" >
+        #{dpay,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null" >
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="djob != null" >
+        #{djob,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.PerDemandWorkExample" resultType="java.lang.Integer" >
+    select count(*) from per_demand_work
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update per_demand_work
+    <set >
+      <if test="record.dplace != null" >
+        dplace = #{record.dplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jtype != null" >
+        jtype = #{record.jtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dpay != null" >
+        dpay = #{record.dpay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.industry != null" >
+        industry = #{record.industry,jdbcType=VARCHAR},
+      </if>
+      <if test="record.djob != null" >
+        djob = #{record.djob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update per_demand_work
+    set dplace = #{record.dplace,jdbcType=VARCHAR},
+      jtype = #{record.jtype,jdbcType=VARCHAR},
+      dpay = #{record.dpay,jdbcType=VARCHAR},
+      industry = #{record.industry,jdbcType=VARCHAR},
+      djob = #{record.djob,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

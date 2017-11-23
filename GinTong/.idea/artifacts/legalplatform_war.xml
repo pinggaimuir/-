@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="legalplatform:war">
+    <output-path>$PROJECT_DIR$/legalplatform/target</output-path>
+    <root id="archive" name="legalplatform.war">
+      <element id="artifact" artifact-name="legalplatform:war exploded" />
+    </root>
+  </artifact>
+</component>

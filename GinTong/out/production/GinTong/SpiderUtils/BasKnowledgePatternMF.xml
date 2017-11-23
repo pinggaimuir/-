@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<BasKnowledgeSpiderPattern>
+
+
+    <!--魔方网-->
+    <spiderMf>
+        <!--详情页-->
+        <title>//div[@class='arc-con-title']/h1/text()</title>
+        <!--详情页-->
+        <author>//div[@class='arc-con-title']/p[@class='arc-title-crumbs']/span[@class='arc-title-author']/text()</author>
+        <authorurl></authorurl>>
+        <!--列表页-->
+        <cover>//div[@class='public-tabs-con']/dt[@class='public-tabs-pic']/img/@src</cover>>
+        <!--详情页-->
+        <ptime timeFormat="yyyy MM dd HH mm">//div[@class='arc-con-title']/p[@class='arc-title-crumbs']/span[@class='arc-crumbs-date']/text()</ptime>>
+       <!--列表页-->
+
+
+        <tag>//dd[@class='public-tabs-keywords']</tag>>
+
+        <!--详情页-->
+        <main>//div[@class='arc-article-detail']/p</main>>
+        <!--详情页-->
+        <mainpic>//img/@src</mainpic>>
+        <!--列表页-->
+        <type>//div[@class='public-tabs-con']/dd[@class='public-tabs-keywords']/a/text()</type>>
+        <source>魔方</source>
+        <childnext></childnext>>
+        <childnextflag></childnextflag>
+        <!--列表页-->
+
+        <childLink Mosaic="">//dd[@class='public-tabs-title']/a/@href</childLink>>
+        <next></next>>
+        <nextflag></nextflag>>
+
+        <more>$('.public-more').click()</more>>
+
+        <moreflag>//a[class='public-more public-mb20']</moreflag>>
+
+
+        <urls>
+            <url>
+                http://www.mofang.com/news
+            </url>
+        </urls>>
+
+    </spiderMf>
+
+</BasKnowledgeSpiderPattern>

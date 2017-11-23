@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.ProOtherInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.ProOtherInfo" >
+    <result column="pname" property="pname" jdbcType="VARCHAR" />
+    <result column="ptype" property="ptype" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="ptime" property="ptime" jdbcType="TIMESTAMP" />
+    <result column="scale" property="scale" jdbcType="VARCHAR" />
+    <result column="pdemand" property="pdemand" jdbcType="VARCHAR" />
+    <result column="picture_url" property="pictureUrl" jdbcType="VARCHAR" />
+    <result column="web" property="web" jdbcType="VARCHAR" />
+    <result column="source" property="source" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="mybatisGenerator.javaBean.ProOtherInfo" extends="BaseResultMap" >
+    <result column="p_desc" property="pDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    pname, ptype, tag, ptime, scale, pdemand, picture_url, web, source, uuid, url, type
+  </sql>
+  <sql id="Blob_Column_List" >
+    p_desc
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="mybatisGenerator.javaBean.ProOtherInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pro_other_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.ProOtherInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pro_other_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.ProOtherInfoExample" >
+    delete from pro_other_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.ProOtherInfo" >
+    insert into pro_other_info (pname, ptype, tag, 
+      ptime, scale, pdemand, 
+      picture_url, web, source, 
+      uuid, url, type, p_desc
+      )
+    values (#{pname,jdbcType=VARCHAR}, #{ptype,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{ptime,jdbcType=TIMESTAMP}, #{scale,jdbcType=VARCHAR}, #{pdemand,jdbcType=VARCHAR}, 
+      #{pictureUrl,jdbcType=VARCHAR}, #{web,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, 
+      #{uuid,jdbcType=CHAR}, #{url,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{pDesc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.ProOtherInfo" >
+    insert into pro_other_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        pname,
+      </if>
+      <if test="ptype != null" >
+        ptype,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="ptime != null" >
+        ptime,
+      </if>
+      <if test="scale != null" >
+        scale,
+      </if>
+      <if test="pdemand != null" >
+        pdemand,
+      </if>
+      <if test="pictureUrl != null" >
+        picture_url,
+      </if>
+      <if test="web != null" >
+        web,
+      </if>
+      <if test="source != null" >
+        source,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="pDesc != null" >
+        p_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pname != null" >
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="ptype != null" >
+        #{ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="ptime != null" >
+        #{ptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scale != null" >
+        #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="pdemand != null" >
+        #{pdemand,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureUrl != null" >
+        #{pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="web != null" >
+        #{web,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="pDesc != null" >
+        #{pDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.ProOtherInfoExample" resultType="java.lang.Integer" >
+    select count(*) from pro_other_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pro_other_info
+    <set >
+      <if test="record.pname != null" >
+        pname = #{record.pname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptype != null" >
+        ptype = #{record.ptype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tag != null" >
+        tag = #{record.tag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ptime != null" >
+        ptime = #{record.ptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.scale != null" >
+        scale = #{record.scale,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pdemand != null" >
+        pdemand = #{record.pdemand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pictureUrl != null" >
+        picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.web != null" >
+        web = #{record.web,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        source = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.pDesc != null" >
+        p_desc = #{record.pDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update pro_other_info
+    set pname = #{record.pname,jdbcType=VARCHAR},
+      ptype = #{record.ptype,jdbcType=VARCHAR},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      ptime = #{record.ptime,jdbcType=TIMESTAMP},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      pdemand = #{record.pdemand,jdbcType=VARCHAR},
+      picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      web = #{record.web,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      p_desc = #{record.pDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pro_other_info
+    set pname = #{record.pname,jdbcType=VARCHAR},
+      ptype = #{record.ptype,jdbcType=VARCHAR},
+      tag = #{record.tag,jdbcType=VARCHAR},
+      ptime = #{record.ptime,jdbcType=TIMESTAMP},
+      scale = #{record.scale,jdbcType=VARCHAR},
+      pdemand = #{record.pdemand,jdbcType=VARCHAR},
+      picture_url = #{record.pictureUrl,jdbcType=VARCHAR},
+      web = #{record.web,jdbcType=VARCHAR},
+      source = #{record.source,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

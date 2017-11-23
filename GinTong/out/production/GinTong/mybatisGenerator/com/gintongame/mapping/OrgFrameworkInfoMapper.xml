@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.OrgFrameworkInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.OrgFrameworkInfo" >
+    <result column="framework" property="framework" jdbcType="VARCHAR" />
+    <result column="member" property="member" jdbcType="INTEGER" />
+    <result column="recruit" property="recruit" jdbcType="VARCHAR" />
+    <result column="con_system" property="conSystem" jdbcType="VARCHAR" />
+    <result column="welfare" property="welfare" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    framework, member, recruit, con_system, welfare, uuid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.OrgFrameworkInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from org_framework_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.OrgFrameworkInfoExample" >
+    delete from org_framework_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.OrgFrameworkInfo" >
+    insert into org_framework_info (framework, member, recruit, 
+      con_system, welfare, uuid
+      )
+    values (#{framework,jdbcType=VARCHAR}, #{member,jdbcType=INTEGER}, #{recruit,jdbcType=VARCHAR}, 
+      #{conSystem,jdbcType=VARCHAR}, #{welfare,jdbcType=VARCHAR}, #{uuid,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.OrgFrameworkInfo" >
+    insert into org_framework_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="framework != null" >
+        framework,
+      </if>
+      <if test="member != null" >
+        member,
+      </if>
+      <if test="recruit != null" >
+        recruit,
+      </if>
+      <if test="conSystem != null" >
+        con_system,
+      </if>
+      <if test="welfare != null" >
+        welfare,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="framework != null" >
+        #{framework,jdbcType=VARCHAR},
+      </if>
+      <if test="member != null" >
+        #{member,jdbcType=INTEGER},
+      </if>
+      <if test="recruit != null" >
+        #{recruit,jdbcType=VARCHAR},
+      </if>
+      <if test="conSystem != null" >
+        #{conSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare != null" >
+        #{welfare,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.OrgFrameworkInfoExample" resultType="java.lang.Integer" >
+    select count(*) from org_framework_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update org_framework_info
+    <set >
+      <if test="record.framework != null" >
+        framework = #{record.framework,jdbcType=VARCHAR},
+      </if>
+      <if test="record.member != null" >
+        member = #{record.member,jdbcType=INTEGER},
+      </if>
+      <if test="record.recruit != null" >
+        recruit = #{record.recruit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conSystem != null" >
+        con_system = #{record.conSystem,jdbcType=VARCHAR},
+      </if>
+      <if test="record.welfare != null" >
+        welfare = #{record.welfare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update org_framework_info
+    set framework = #{record.framework,jdbcType=VARCHAR},
+      member = #{record.member,jdbcType=INTEGER},
+      recruit = #{record.recruit,jdbcType=VARCHAR},
+      con_system = #{record.conSystem,jdbcType=VARCHAR},
+      welfare = #{record.welfare,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

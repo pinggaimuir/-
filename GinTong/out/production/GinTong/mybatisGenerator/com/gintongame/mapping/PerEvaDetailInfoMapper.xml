@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.PerEvaDetailInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.PerEvaDetailInfo" >
+    <result column="eva_id" property="evaId" jdbcType="BIGINT" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="hobby" property="hobby" jdbcType="VARCHAR" />
+    <result column="psychology" property="psychology" jdbcType="VARCHAR" />
+    <result column="mand" property="mand" jdbcType="VARCHAR" />
+    <result column="charact" property="charact" jdbcType="VARCHAR" />
+    <result column="pf_ability" property="pfAbility" jdbcType="VARCHAR" />
+    <result column="mg_ability" property="mgAbility" jdbcType="VARCHAR" />
+    <result column="it_think" property="itThink" jdbcType="VARCHAR" />
+    <result column="virtue" property="virtue" jdbcType="VARCHAR" />
+    <result column="flaw" property="flaw" jdbcType="VARCHAR" />
+    <result column="bosom" property="bosom" jdbcType="VARCHAR" />
+    <result column="family_status" property="familyStatus" jdbcType="VARCHAR" />
+    <result column="ethics" property="ethics" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    eva_id, image, hobby, psychology, mand, charact, pf_ability, mg_ability, it_think, 
+    virtue, flaw, bosom, family_status, ethics, uuid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.PerEvaDetailInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from per_eva_detail_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.PerEvaDetailInfoExample" >
+    delete from per_eva_detail_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.PerEvaDetailInfo" >
+    insert into per_eva_detail_info (eva_id, image, hobby, 
+      psychology, mand, charact, 
+      pf_ability, mg_ability, it_think, 
+      virtue, flaw, bosom, 
+      family_status, ethics, uuid
+      )
+    values (#{evaId,jdbcType=BIGINT}, #{image,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}, 
+      #{psychology,jdbcType=VARCHAR}, #{mand,jdbcType=VARCHAR}, #{charact,jdbcType=VARCHAR}, 
+      #{pfAbility,jdbcType=VARCHAR}, #{mgAbility,jdbcType=VARCHAR}, #{itThink,jdbcType=VARCHAR}, 
+      #{virtue,jdbcType=VARCHAR}, #{flaw,jdbcType=VARCHAR}, #{bosom,jdbcType=VARCHAR}, 
+      #{familyStatus,jdbcType=VARCHAR}, #{ethics,jdbcType=VARCHAR}, #{uuid,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.PerEvaDetailInfo" >
+    insert into per_eva_detail_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="evaId != null" >
+        eva_id,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="hobby != null" >
+        hobby,
+      </if>
+      <if test="psychology != null" >
+        psychology,
+      </if>
+      <if test="mand != null" >
+        mand,
+      </if>
+      <if test="charact != null" >
+        charact,
+      </if>
+      <if test="pfAbility != null" >
+        pf_ability,
+      </if>
+      <if test="mgAbility != null" >
+        mg_ability,
+      </if>
+      <if test="itThink != null" >
+        it_think,
+      </if>
+      <if test="virtue != null" >
+        virtue,
+      </if>
+      <if test="flaw != null" >
+        flaw,
+      </if>
+      <if test="bosom != null" >
+        bosom,
+      </if>
+      <if test="familyStatus != null" >
+        family_status,
+      </if>
+      <if test="ethics != null" >
+        ethics,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="evaId != null" >
+        #{evaId,jdbcType=BIGINT},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="hobby != null" >
+        #{hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="psychology != null" >
+        #{psychology,jdbcType=VARCHAR},
+      </if>
+      <if test="mand != null" >
+        #{mand,jdbcType=VARCHAR},
+      </if>
+      <if test="charact != null" >
+        #{charact,jdbcType=VARCHAR},
+      </if>
+      <if test="pfAbility != null" >
+        #{pfAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="mgAbility != null" >
+        #{mgAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="itThink != null" >
+        #{itThink,jdbcType=VARCHAR},
+      </if>
+      <if test="virtue != null" >
+        #{virtue,jdbcType=VARCHAR},
+      </if>
+      <if test="flaw != null" >
+        #{flaw,jdbcType=VARCHAR},
+      </if>
+      <if test="bosom != null" >
+        #{bosom,jdbcType=VARCHAR},
+      </if>
+      <if test="familyStatus != null" >
+        #{familyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="ethics != null" >
+        #{ethics,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.PerEvaDetailInfoExample" resultType="java.lang.Integer" >
+    select count(*) from per_eva_detail_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update per_eva_detail_info
+    <set >
+      <if test="record.evaId != null" >
+        eva_id = #{record.evaId,jdbcType=BIGINT},
+      </if>
+      <if test="record.image != null" >
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hobby != null" >
+        hobby = #{record.hobby,jdbcType=VARCHAR},
+      </if>
+      <if test="record.psychology != null" >
+        psychology = #{record.psychology,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mand != null" >
+        mand = #{record.mand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.charact != null" >
+        charact = #{record.charact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pfAbility != null" >
+        pf_ability = #{record.pfAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mgAbility != null" >
+        mg_ability = #{record.mgAbility,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itThink != null" >
+        it_think = #{record.itThink,jdbcType=VARCHAR},
+      </if>
+      <if test="record.virtue != null" >
+        virtue = #{record.virtue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flaw != null" >
+        flaw = #{record.flaw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bosom != null" >
+        bosom = #{record.bosom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyStatus != null" >
+        family_status = #{record.familyStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ethics != null" >
+        ethics = #{record.ethics,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update per_eva_detail_info
+    set eva_id = #{record.evaId,jdbcType=BIGINT},
+      image = #{record.image,jdbcType=VARCHAR},
+      hobby = #{record.hobby,jdbcType=VARCHAR},
+      psychology = #{record.psychology,jdbcType=VARCHAR},
+      mand = #{record.mand,jdbcType=VARCHAR},
+      charact = #{record.charact,jdbcType=VARCHAR},
+      pf_ability = #{record.pfAbility,jdbcType=VARCHAR},
+      mg_ability = #{record.mgAbility,jdbcType=VARCHAR},
+      it_think = #{record.itThink,jdbcType=VARCHAR},
+      virtue = #{record.virtue,jdbcType=VARCHAR},
+      flaw = #{record.flaw,jdbcType=VARCHAR},
+      bosom = #{record.bosom,jdbcType=VARCHAR},
+      family_status = #{record.familyStatus,jdbcType=VARCHAR},
+      ethics = #{record.ethics,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mybatisGenerator.dao.PerWorkInfoMapper" >
+  <resultMap id="BaseResultMap" type="mybatisGenerator.javaBean.PerWorkInfo" >
+    <result column="oname" property="oname" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="job_early" property="jobEarly" jdbcType="VARCHAR" />
+    <result column="work_time" property="workTime" jdbcType="VARCHAR" />
+    <result column="wtype" property="wtype" jdbcType="VARCHAR" />
+    <result column="company_addr" property="companyAddr" jdbcType="VARCHAR" />
+    <result column="oph" property="oph" jdbcType="VARCHAR" />
+    <result column="income" property="income" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="mybatisGenerator.javaBean.PerWorkInfo" extends="BaseResultMap" >
+    <result column="w_desc" property="wDesc" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    oname, department, job, level, job_early, work_time, wtype, company_addr, oph, income, 
+    uuid
+  </sql>
+  <sql id="Blob_Column_List" >
+    w_desc
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="mybatisGenerator.javaBean.PerWorkInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from per_work_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="mybatisGenerator.javaBean.PerWorkInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from per_work_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="mybatisGenerator.javaBean.PerWorkInfoExample" >
+    delete from per_work_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="mybatisGenerator.javaBean.PerWorkInfo" >
+    insert into per_work_info (oname, department, job, 
+      level, job_early, work_time, 
+      wtype, company_addr, oph, 
+      income, uuid, w_desc
+      )
+    values (#{oname,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{level,jdbcType=VARCHAR}, #{jobEarly,jdbcType=VARCHAR}, #{workTime,jdbcType=VARCHAR}, 
+      #{wtype,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, #{oph,jdbcType=VARCHAR}, 
+      #{income,jdbcType=VARCHAR}, #{uuid,jdbcType=CHAR}, #{wDesc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="mybatisGenerator.javaBean.PerWorkInfo" >
+    insert into per_work_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="oname != null" >
+        oname,
+      </if>
+      <if test="department != null" >
+        department,
+      </if>
+      <if test="job != null" >
+        job,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="jobEarly != null" >
+        job_early,
+      </if>
+      <if test="workTime != null" >
+        work_time,
+      </if>
+      <if test="wtype != null" >
+        wtype,
+      </if>
+      <if test="companyAddr != null" >
+        company_addr,
+      </if>
+      <if test="oph != null" >
+        oph,
+      </if>
+      <if test="income != null" >
+        income,
+      </if>
+      <if test="uuid != null" >
+        uuid,
+      </if>
+      <if test="wDesc != null" >
+        w_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="oname != null" >
+        #{oname,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null" >
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null" >
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="jobEarly != null" >
+        #{jobEarly,jdbcType=VARCHAR},
+      </if>
+      <if test="workTime != null" >
+        #{workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="wtype != null" >
+        #{wtype,jdbcType=VARCHAR},
+      </if>
+      <if test="companyAddr != null" >
+        #{companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="oph != null" >
+        #{oph,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        #{income,jdbcType=VARCHAR},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=CHAR},
+      </if>
+      <if test="wDesc != null" >
+        #{wDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="mybatisGenerator.javaBean.PerWorkInfoExample" resultType="java.lang.Integer" >
+    select count(*) from per_work_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update per_work_info
+    <set >
+      <if test="record.oname != null" >
+        oname = #{record.oname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.department != null" >
+        department = #{record.department,jdbcType=VARCHAR},
+      </if>
+      <if test="record.job != null" >
+        job = #{record.job,jdbcType=VARCHAR},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jobEarly != null" >
+        job_early = #{record.jobEarly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workTime != null" >
+        work_time = #{record.workTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wtype != null" >
+        wtype = #{record.wtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.companyAddr != null" >
+        company_addr = #{record.companyAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oph != null" >
+        oph = #{record.oph,jdbcType=VARCHAR},
+      </if>
+      <if test="record.income != null" >
+        income = #{record.income,jdbcType=VARCHAR},
+      </if>
+      <if test="record.uuid != null" >
+        uuid = #{record.uuid,jdbcType=CHAR},
+      </if>
+      <if test="record.wDesc != null" >
+        w_desc = #{record.wDesc,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update per_work_info
+    set oname = #{record.oname,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      job = #{record.job,jdbcType=VARCHAR},
+      level = #{record.level,jdbcType=VARCHAR},
+      job_early = #{record.jobEarly,jdbcType=VARCHAR},
+      work_time = #{record.workTime,jdbcType=VARCHAR},
+      wtype = #{record.wtype,jdbcType=VARCHAR},
+      company_addr = #{record.companyAddr,jdbcType=VARCHAR},
+      oph = #{record.oph,jdbcType=VARCHAR},
+      income = #{record.income,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR},
+      w_desc = #{record.wDesc,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update per_work_info
+    set oname = #{record.oname,jdbcType=VARCHAR},
+      department = #{record.department,jdbcType=VARCHAR},
+      job = #{record.job,jdbcType=VARCHAR},
+      level = #{record.level,jdbcType=VARCHAR},
+      job_early = #{record.jobEarly,jdbcType=VARCHAR},
+      work_time = #{record.workTime,jdbcType=VARCHAR},
+      wtype = #{record.wtype,jdbcType=VARCHAR},
+      company_addr = #{record.companyAddr,jdbcType=VARCHAR},
+      oph = #{record.oph,jdbcType=VARCHAR},
+      income = #{record.income,jdbcType=VARCHAR},
+      uuid = #{record.uuid,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

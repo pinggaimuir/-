@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gintongame.mapping.BasPersonInfoMapper">
+
+    <insert id="insertBatch" parameterType="java.util.ArrayList" useGeneratedKeys="true" >
+        insert into bas_person_info(uuid,name,enname,age,alias,hometown,country,nation,con_way,sex,id_number,birthday,household_register,liveplace,marital_status,employment,diploma,work_years,child_status,live_photo,occu_photo,art_photo,ptag,p_desc,source,url,type,advantage)
+        values
+        <foreach collection="list" item="item" index="index" open="" close="" separator=",">
+            (#{item.uuid},#{item.name},#{item.enname},#{item.age},#{item.alias},#{item.hometown},#{item.country},#{item.nation},#{item.con_way},#{item.sex},#{item.id_number},#{item.birthday},#{item.household_register},#{item.liveplace},#{item.marital_status},#{item.employment},#{item.diploma},#{item.work_years},#{item.child_status},#{item.live_photo},#{item.occu_photo},#{item.art_photo},#{item.ptag},#{item.p_desc},#{item.source},#{item.url},#{item.type},#{item.advantage})
+        </foreach>
+
+    </insert>
+
+	<insert id="insert" parameterType="java.util.ArrayList" useGeneratedKeys="true" >
+        insert into bas_person_info(uuid,name,enname,age,alias,hometown,country,nation,con_way,sex,id_number,birthday,household_register,liveplace,marital_status,employment,diploma,work_years,child_status,live_photo,occu_photo,art_photo,ptag,p_desc,source,url,type,advantage)
+        values
+            (#{uuid},#{name},#{enname},#{age},#{alias},#{hometown},#{country},#{nation},#{con_way},#{sex},#{id_number},#{birthday},#{household_register},#{liveplace},#{marital_status},#{employment},#{diploma},#{work_years},#{child_status},#{live_photo},#{occu_photo},#{art_photo},#{ptag},#{p_desc},#{source},#{url},#{type},#{advantage})
+    </insert>
+
+    <select id="selectList" parameterType="java.lang.String"  resultType="String">
+        SELECT name FROM bas_person_info WHERE source=#{source}
+    </select>
+
+    <insert id="insertPerInfo" parameterType="JavaBean.BasPersonInfo" useGeneratedKeys="true">
+         insert into bas_person_info(uuid,name,enname,age,alias,hometown,country,nation,con_way,sex,id_number,birthday,household_register,liveplace,marital_status,employment,diploma,work_years,child_status,live_photo,occu_photo,art_photo,ptag,p_desc,source,url,type,advantage,province,city)
+        values
+            (#{uuid},#{name},#{enname},#{age},#{alias},#{hometown},#{country},#{nation},#{con_way},#{sex},#{id_number},#{birthday},#{household_register},#{liveplace},#{marital_status},#{employment},#{diploma},#{work_years},#{child_status},#{live_photo},#{occu_photo},#{art_photo},#{ptag},#{p_desc},#{source},#{url},#{type},#{advantage},#{province},#{city})
+    </insert>
+
+    <select id="selectPerByUrl" parameterType="java.lang.String" resultType="JavaBean.BasPersonInfo">
+        select * from bas_person_info where url=#{url}
+    </select>
+
+    <update id="updatePerByUrl" parameterType="JavaBean.BasPersonInfo">
+        update bas_person_info set enname=#{enname},age=#{age},alias=#{alias},hometown=#{hometown},country=#{country},nation=#{nation},con_way=#{con_way},sex=#{sex},
+        id_number=#{id_number},birthday=#{birthday},household_register=#{household_register},liveplace=#{liveplace},marital_status=#{marital_status},employment=#{employment},diploma=#{diploma},work_years=#{work_years},
+        child_status=#{child_status},live_photo=#{live_photo},occu_photo=#{occu_photo},art_photo=#{art_photo},ptag=#{ptag},p_desc=#{p_desc},source=#{source},type=#{type},advantage=#{advantage} where url=#{url}
+    </update>
+
+        </mapper>

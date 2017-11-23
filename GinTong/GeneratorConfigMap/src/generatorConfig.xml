@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="testTables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+			<!--connectionURL="jdbc:mysql://123.59.74.132:3306/game_db" userId="gtcom"-->
+			<!--password="admin@gt.com1">-->
+		<!--</jdbcConnection>	-->
+        <!--连接sqlServer数据库-->
+        <!--<jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"-->
+			<!--connectionURL="url=jdbc:jtds:sqlserver://192.168.20.236:1433/bricdata" userId="sa"-->
+			<!--password="bric20167#123">-->
+		<!--</jdbcConnection>  -->
+        <jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+			connectionURL="jdbc:jtds:sqlserver://210.51.3.34:2424/bricdata" userId="BricServer"
+			password="Q!w2E#r4">
+		</jdbcConnection>
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和 
+			NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="cn.bric.pojo"
+			targetProject="generatorConfigMap/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+        <!-- targetProject:mapper映射文件生成的位置 -->
+		<sqlMapGenerator targetPackage="cn.bric.mapper.mapping"
+			targetProject="generatorConfigMap/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+		</sqlMapGenerator>
+		<!-- targetPackage：mapper接口生成的位置 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="cn.bric.mapper"
+			targetProject="generatorConfigMap/src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false"  />
+
+		</javaClientGenerator>
+		<!-- 指定数据库表 -->
+		<!--<table schema="" tableName="tb_item_cat" domainObjectName="tb_item_cat"-->
+		<!--enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
+		<!--enableUpdateByExample="false" selectByExampleQueryId="false" delimitIdentifiers="true">-->
+        <!--<property name="useActualColumnNames" value="true" />-->
+			<!--<ignoreColumn column="CREATE_BY"/>-->
+			<!--<ignoreColumn column="CREATE_DEPT"/>-->
+		<!--</table>-->
+
+
+        <table schema="" tableName="CX_IndonesiaIndonesianpalmoilproductsandder" >
+            <ignoreColumn column="id"/>
+            <ignoreColumn column="ctime"/>
+            <ignoreColumn column="atime"/>
+        </table>
+
+
+
+
+	</context>
+</generatorConfiguration>

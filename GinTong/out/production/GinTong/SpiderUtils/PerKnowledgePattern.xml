@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PerKnowledgeSpiderPattern>
+    <!--虎嗅网  刘雪明  3.28-->
+    <spiderHXW>
+        <title>//h1[@class='t-h1']/text()</title>
+        <author>//div[@class='article-author']/span[@class='author-name']/a/text()</author>
+        <authorurl></authorurl>
+        <ptime timeFormat=""></ptime>>
+        <cover join=""></cover>
+        <tag></tag>
+        <main>//p</main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>虎嗅网</source>
+        <childLink join="https://www.huxiu.com">//h2/a/@href</childLink>>
+        <nextpage join="https://www.huxiu.com">$('.icon.icon-gt').click()</nextpage>
+        <flag>selenium</flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                https://www.huxiu.com/search.html?s=%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=HR
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=%E6%BF%80%E5%8A%B1%E5%88%B6%E5%BA%A6
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=%E6%8B%9B%E8%81%98
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=薪酬
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=体系收入
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=绩效
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=%E5%B7%A5%E8%B5%84
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=绩效考核
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=培训
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=KPI
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=目标管理
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=劳动争议
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=劳动仲裁
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=员工培训
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=员工激励
+            </url>
+            <url>https://www.huxiu.com/search.html?s=才培养劳</url>
+            <url>
+                https://www.huxiu.com/search.html?s=%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E6%B3%95
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=绩效评估
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=平衡积分卡
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=劳务派遣
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=社会保险
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=劳动关系
+            </url>
+            <url>
+                https://www.huxiu.com/search.html?s=劳动合同
+            </url>
+        </urls>
+    </spiderHXW>
+    <!--黑马网  刘雪明  3.28-->
+    <spiderHMW>
+        <title>//div[@class='title']/text()</title>
+        <author>//div[@class='author']/text()</author>
+        <authorurl>//div[@class='author']/a/@href</authorurl>
+        <cover join=""></cover>
+        <ptime timeFormat="yyyy MM dd HH mm">//time[@class='timeago']/text()</ptime>>
+        <tag></tag>
+        <main>//div[@class='main-content']/p</main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>黑马网</source>
+        <childLink join="">//div[@class='desc']/a[@class='title']/@href</childLink>>
+        <nextpage join="">$('.next')[0].click()</nextpage>
+        <flag>selenium</flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=HR
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=激励制度
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=%E6%8B%9B%E8%81%98
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=薪酬
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=绩效
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=%E5%B7%A5%E8%B5%84
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=绩效考核
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=培训
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=KPI
+            </url>
+            <url>
+                http://app.iheima.com/?app=search&amp;controller=index&amp;action=search&amp;type=all&amp;wd=员工培训
+            </url>
+        </urls>
+    </spiderHMW>
+    <!--36KR 刘雪明  3.28  未完成-->
+    <spider36KR>
+            <title>//h3/a/text()</title>
+            <author>//span[@class='name']/text()</author>
+            <authorurl></authorurl>
+            <cover join=""></cover>
+            <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+            <tag></tag>
+            <main>//section[@class='textblock']/alalText()</main>>
+            <mainpic>//img/@src</mainpic>>
+            <type></type>>
+            <source>36KR网</source>
+            <childLink join="http://36kr.com">//h3/a/@href</childLink>>
+            <nextpage join="">$('.kr-page-item.next')[0].click()</nextpage>
+            <flag>selenium</flag>>
+            <childnext join=""></childnext>>
+            <chose demand=""></chose>>
+            <urls>
+                <url>
+                    http://36kr.com/search/articles/%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90%E2%80%98%E2%80%99?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/HR?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/激励制度?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/%E6%8B%9B%E8%81%98?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/薪酬?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/绩效?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/%E5%B7%A5%E8%B5%84?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/绩效考核?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/培训?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/KPI?page=2&amp;ts=1490687469
+                </url>
+                <url>
+                    http://36kr.com/search/articles/员工培训?page=2&amp;ts=1490687469
+                </url>
+            </urls>
+    </spider36KR>
+    <!--每经网   刘雪明  3.28  -->
+    <spiderMJW>
+        <title>//h1/text()</title>
+        <author></author>
+        <authorurl></authorurl>
+        <cover join=""></cover>
+        <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+        <tag></tag>
+        <main>//div[@class='g-articl-text']/p</main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>每经网</source>
+        <childLink join="">//p[@class='articleMaterial_title']/a/@href</childLink>>
+        <nextpage join="">//span[@class='next']/a[text()*='下一页 »']/@href</nextpage>
+        <flag>jsoup</flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=HR
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=%E6%BF%80%E5%8A%B1%E5%88%B6%E5%BA%A6
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=%E6%8B%9B%E8%81%98
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=薪酬
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=体系收入
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=绩效
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=%E5%B7%A5%E8%B5%84
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=绩效考核
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=培训
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=KPI
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=目标管理
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=劳动争议
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=劳动仲裁
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=员工培训
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=员工激励
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=%E5%8A%B3%E5%8A%A8%E5%90%88%E5%90%8C%E6%B3%95
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=绩效评估
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=劳务派遣
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=社会保险
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=劳动关系
+            </url>
+            <url>
+                http://www.nbd.com.cn/search/article_search?utf8=%E2%9C%93&amp;q=劳动合同
+            </url>
+        </urls>
+    </spiderMJW>
+    <!--搜狐   刘雪明  3.29-->
+    <spiderSH>
+        <title></title>
+        <author></author>
+        <authorurl></authorurl>
+        <cover join=""></cover>
+        <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+        <tag></tag>
+        <main></main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>搜狐</source>
+        <childLink join=""></childLink>>
+        <nextpage join=""></nextpage>
+        <flag></flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                http://mp.sohu.com/profile?xpt=cHBhZzc0NDQ5ZmQ3NDBhMUBzb2h1LmNvbQ==
+            </url>
+        </urls>
+    </spiderSH>
+    <!--TechWeb   刘雪明   3.29 完成未入库-->
+    <spiderTechWeb>
+        <title>//h1/text()</title>
+        <author>//span[@id='author_baidu']/text()</author>
+        <authorurl></authorurl>
+        <cover join=""></cover>
+        <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+        <tag></tag>
+        <main>//div[@id='artibody']/p</main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>TechWeb</source>
+        <childLink join="">//div[@class='result_con']/h2/a/@href</childLink>>
+        <nextpage join="http://www.techweb.com.cn">//div[@class='sabrosus']/a[text()*='下一页']/@href</nextpage>
+        <flag>jsoup</flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;q=%E4%BA%BA%E5%8A%9B%E8%B5%84%E6%BA%90&amp;start=10&amp;start=0
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;q=%E6%BF%80%E5%8A%B1%E5%88%B6%E5%BA%A6&amp;start=90
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;q=HR&amp;start=30&amp;start=0
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;q=%E8%96%AA%E9%85%AC&amp;start=10&amp;start=0
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;q=工资&amp;start=0&amp;start=10
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;date=all&amp;q=%E7%BB%A9%E6%95%88%E8%80%83%E6%A0%B8
+            </url>
+            <url>
+                http://www.techweb.com.cn/search/?type=all&amp;date=all&amp;q=KPI&amp;start=10&amp;start=0
+            </url>
+        </urls>
+    </spiderTechWeb>
+    <!--Hroot   刘雪明 3.29 完成未入库-->
+    <spiderHroot>
+        <title>//title/text()</title>
+        <author></author>
+        <authorurl></authorurl>
+        <cover join=""></cover>
+        <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+        <tag></tag>
+        <main></main>>
+        <mainpic></mainpic>>
+        <type></type>>
+        <source>Hroot</source>
+        <childLink join="">//table/tbody/tr/td/table/tbody/tr/td/a/@href</childLink>>
+        <nextpage join=""></nextpage>
+        <!--//a[text()*='下一页']/@href-->
+        <flag>jsoup</flag>>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <urls>
+            <url>
+                http://www.hroot.com/channels/674.html
+            </url>
+            <url>
+                http://www.hroot.com/channels/673.html
+            </url>
+            <url>
+                http://www.hroot.com/channels/6.html
+            </url>
+        </urls>
+    </spiderHroot>
+    <!--第一资源  刘雪明  3.29-->
+    <spiderDYZY>
+            <title>//title/text()</title>
+            <author></author>
+            <authorurl></authorurl>
+            <cover join=""></cover>
+            <ptime timeFormat="yyyy MM dd HH mm"></ptime>>
+            <tag></tag>
+            <main></main>>
+            <mainpic></mainpic>>
+            <type></type>>
+            <source>第一资源</source>
+            <childLink join=""></childLink>>
+            <nextpage join=""></nextpage>
+            <flag>jsoup</flag>>
+            <childnext join=""></childnext>>
+            <chose demand=""></chose>>
+            <urls>
+                <url>
+                    http://www.tophr.net/news/newslist.asp?id=23
+                </url>
+            </urls>
+    </spiderDYZY>
+
+</PerKnowledgeSpiderPattern>

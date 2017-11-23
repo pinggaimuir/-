@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.bric.mapper.CxIndonesiaindonesianpalmoilproductsandderMapper" >
+  <resultMap id="BaseResultMap" type="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandder" >
+    <result column="EditTime" property="edittime" jdbcType="TIMESTAMP" />
+    <result column="VarId" property="varid" jdbcType="INTEGER" />
+    <result column="TimeInt" property="timeint" jdbcType="INTEGER" />
+    <result column="Nearby" property="nearby" jdbcType="DOUBLE" />
+    <result column="1月" property="1月" jdbcType="DOUBLE" />
+    <result column="2月" property="2月" jdbcType="DOUBLE" />
+    <result column="3月" property="3月" jdbcType="DOUBLE" />
+    <result column="4月" property="4月" jdbcType="DOUBLE" />
+    <result column="5月" property="5月" jdbcType="DOUBLE" />
+    <result column="6月" property="6月" jdbcType="DOUBLE" />
+    <result column="7月" property="7月" jdbcType="DOUBLE" />
+    <result column="8月" property="8月" jdbcType="DOUBLE" />
+    <result column="9月" property="9月" jdbcType="DOUBLE" />
+    <result column="10月" property="10月" jdbcType="DOUBLE" />
+    <result column="11月" property="11月" jdbcType="DOUBLE" />
+    <result column="12月" property="12月" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    EditTime, VarId, TimeInt, Nearby, 1月, 2月, 3月, 4月, 5月, 6月, 7月, 8月, 9月, 10月, 11月, 12月
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from CX_IndonesiaIndonesianpalmoilproductsandder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandderExample" >
+    delete from CX_IndonesiaIndonesianpalmoilproductsandder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandder" >
+    insert into CX_IndonesiaIndonesianpalmoilproductsandder (EditTime, VarId, TimeInt, 
+      Nearby, 1月, 2月, 3月, 
+      4月, 5月, 6月, 7月, 
+      8月, 9月, 10月, 11月, 
+      12月)
+    values (#{edittime,jdbcType=TIMESTAMP}, #{varid,jdbcType=INTEGER}, #{timeint,jdbcType=INTEGER}, 
+      #{nearby,jdbcType=DOUBLE}, #{1月,jdbcType=DOUBLE}, #{2月,jdbcType=DOUBLE}, #{3月,jdbcType=DOUBLE}, 
+      #{4月,jdbcType=DOUBLE}, #{5月,jdbcType=DOUBLE}, #{6月,jdbcType=DOUBLE}, #{7月,jdbcType=DOUBLE}, 
+      #{8月,jdbcType=DOUBLE}, #{9月,jdbcType=DOUBLE}, #{10月,jdbcType=DOUBLE}, #{11月,jdbcType=DOUBLE}, 
+      #{12月,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandder" >
+    insert into CX_IndonesiaIndonesianpalmoilproductsandder
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="edittime != null" >
+        EditTime,
+      </if>
+      <if test="varid != null" >
+        VarId,
+      </if>
+      <if test="timeint != null" >
+        TimeInt,
+      </if>
+      <if test="nearby != null" >
+        Nearby,
+      </if>
+      <if test="1月 != null" >
+        1月,
+      </if>
+      <if test="2月 != null" >
+        2月,
+      </if>
+      <if test="3月 != null" >
+        3月,
+      </if>
+      <if test="4月 != null" >
+        4月,
+      </if>
+      <if test="5月 != null" >
+        5月,
+      </if>
+      <if test="6月 != null" >
+        6月,
+      </if>
+      <if test="7月 != null" >
+        7月,
+      </if>
+      <if test="8月 != null" >
+        8月,
+      </if>
+      <if test="9月 != null" >
+        9月,
+      </if>
+      <if test="10月 != null" >
+        10月,
+      </if>
+      <if test="11月 != null" >
+        11月,
+      </if>
+      <if test="12月 != null" >
+        12月,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="varid != null" >
+        #{varid,jdbcType=INTEGER},
+      </if>
+      <if test="timeint != null" >
+        #{timeint,jdbcType=INTEGER},
+      </if>
+      <if test="nearby != null" >
+        #{nearby,jdbcType=DOUBLE},
+      </if>
+      <if test="1月 != null" >
+        #{1月,jdbcType=DOUBLE},
+      </if>
+      <if test="2月 != null" >
+        #{2月,jdbcType=DOUBLE},
+      </if>
+      <if test="3月 != null" >
+        #{3月,jdbcType=DOUBLE},
+      </if>
+      <if test="4月 != null" >
+        #{4月,jdbcType=DOUBLE},
+      </if>
+      <if test="5月 != null" >
+        #{5月,jdbcType=DOUBLE},
+      </if>
+      <if test="6月 != null" >
+        #{6月,jdbcType=DOUBLE},
+      </if>
+      <if test="7月 != null" >
+        #{7月,jdbcType=DOUBLE},
+      </if>
+      <if test="8月 != null" >
+        #{8月,jdbcType=DOUBLE},
+      </if>
+      <if test="9月 != null" >
+        #{9月,jdbcType=DOUBLE},
+      </if>
+      <if test="10月 != null" >
+        #{10月,jdbcType=DOUBLE},
+      </if>
+      <if test="11月 != null" >
+        #{11月,jdbcType=DOUBLE},
+      </if>
+      <if test="12月 != null" >
+        #{12月,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.bric.pojo.CxIndonesiaindonesianpalmoilproductsandderExample" resultType="java.lang.Integer" >
+    select count(*) from CX_IndonesiaIndonesianpalmoilproductsandder
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update CX_IndonesiaIndonesianpalmoilproductsandder
+    <set >
+      <if test="record.edittime != null" >
+        EditTime = #{record.edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.varid != null" >
+        VarId = #{record.varid,jdbcType=INTEGER},
+      </if>
+      <if test="record.timeint != null" >
+        TimeInt = #{record.timeint,jdbcType=INTEGER},
+      </if>
+      <if test="record.nearby != null" >
+        Nearby = #{record.nearby,jdbcType=DOUBLE},
+      </if>
+      <if test="record.1月 != null" >
+        1月 = #{record.1月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.2月 != null" >
+        2月 = #{record.2月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.3月 != null" >
+        3月 = #{record.3月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.4月 != null" >
+        4月 = #{record.4月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.5月 != null" >
+        5月 = #{record.5月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.6月 != null" >
+        6月 = #{record.6月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.7月 != null" >
+        7月 = #{record.7月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.8月 != null" >
+        8月 = #{record.8月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.9月 != null" >
+        9月 = #{record.9月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.10月 != null" >
+        10月 = #{record.10月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.11月 != null" >
+        11月 = #{record.11月,jdbcType=DOUBLE},
+      </if>
+      <if test="record.12月 != null" >
+        12月 = #{record.12月,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update CX_IndonesiaIndonesianpalmoilproductsandder
+    set EditTime = #{record.edittime,jdbcType=TIMESTAMP},
+      VarId = #{record.varid,jdbcType=INTEGER},
+      TimeInt = #{record.timeint,jdbcType=INTEGER},
+      Nearby = #{record.nearby,jdbcType=DOUBLE},
+      1月 = #{record.1月,jdbcType=DOUBLE},
+      2月 = #{record.2月,jdbcType=DOUBLE},
+      3月 = #{record.3月,jdbcType=DOUBLE},
+      4月 = #{record.4月,jdbcType=DOUBLE},
+      5月 = #{record.5月,jdbcType=DOUBLE},
+      6月 = #{record.6月,jdbcType=DOUBLE},
+      7月 = #{record.7月,jdbcType=DOUBLE},
+      8月 = #{record.8月,jdbcType=DOUBLE},
+      9月 = #{record.9月,jdbcType=DOUBLE},
+      10月 = #{record.10月,jdbcType=DOUBLE},
+      11月 = #{record.11月,jdbcType=DOUBLE},
+      12月 = #{record.12月,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

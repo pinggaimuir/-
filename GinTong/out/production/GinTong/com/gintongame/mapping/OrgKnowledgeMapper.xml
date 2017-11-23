@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gintongame.mapping.OrgKnowledgeMapper">
+
+	<insert id="insert" parameterType="JavaBean.OrgKnowledge" useGeneratedKeys="true" >
+        insert into org_knowledge(oname,title,revent,rtype,rgrade,rg_desc,ouuid,kuuid,source,ctime,atime)
+        values
+            (#{oname},#{title},#{revent},#{rtype},#{rgrade},#{rg_desc},#{ouuid},#{kuuid},#{source},#{ctime},#{atime})
+
+    </insert>
+	
+
+
+</mapper>

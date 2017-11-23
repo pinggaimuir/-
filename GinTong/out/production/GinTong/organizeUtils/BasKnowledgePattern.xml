@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<BasKnowledgeSpiderPattern> 
+  <!--游戏观察抓取-->  
+  <spiderJzwh> 
+    <uuid/>&gt;
+    <oname>北舟</oname>>
+    <knowledge> 
+      <website> 
+        <title>//div[@class='newscon']/h1/text()</title>  
+        <author/>  
+        <authorurl/>&gt;
+        <cover Mosaic="http://www.beizhouwenhua.com">//div[@class='info_con']/p/img/@src</cover>&gt;
+        <ptime timeFormat="yyyyy MM dd H mm ss">//div[@class='info_txt']/text()</ptime>&gt;
+        <tag/>&gt;
+        <main>//div[@class='info_con']/p</main>&gt;
+        <mainpic Mosaic="http://www.beizhouwenhua.com">//img/@src</mainpic>&gt;
+        <type/>&gt;
+        <source>游戏观察</source>  
+        <childnext/>&gt;
+        <childnextflag/>&gt;
+        <childLink Mosaic="http://www.beizhouwenhua.com">//ul[@class='new_list_ul']/li/a/@href</childLink>&gt;
+        <next/>&gt;
+        <nextflag/>&gt;
+        <more/>&gt;
+        <moreflag/>&gt;
+        <urls>
+          <url>
+            http://www.beizhouwenhua.com/article/
+          </url>
+        </urls>>
+      </website>&gt;
+    </knowledge>&gt;
+  </spiderJzwh> 
+</BasKnowledgeSpiderPattern>

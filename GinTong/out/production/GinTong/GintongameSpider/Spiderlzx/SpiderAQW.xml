@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<SpiderAQW>
+    <spider>
+        <title>//h1[@class='entry-title']/text()</title>
+        <author>//span[@class='meta-author']/a/text()</author>
+        <authorurl></authorurl>>
+        <cover join="">//div[@class='entry entry-content']/p/img[1]/@src</cover>>
+        <ptime timeFormat="yyyy MM dd">//span[@class='meta-date']/text()</ptime>>
+        <tag>//div[@id='entry-tags']/a/text()</tag>>
+        <main>//div[@class='entry entry-content']/p</main>>
+        <mainpic join="">//img/@src</mainpic>>
+        <type>//span[@class='meta-cat']/a/text()</type>>
+        <source>游戏大观</source>
+        <childnext join=""></childnext>>
+        <chose demand=""></chose>>
+        <flag>jsoup</flag>>
+        <childLink join="">//div[@class='entry-thumb']/a/@href</childLink>>
+        <nextpage join="">//div[@class='pagenavi clear']/a[text()*='Next']/@href</nextpage>>
+        <urls>
+            <url>
+                http://www.gamelook.com.cn/category/news
+            </url>
+        </urls>>
+
+    </spider>
+</SpiderAQW>

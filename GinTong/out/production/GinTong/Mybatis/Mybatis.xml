@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://123.59.74.132:3306/game_db?useUnicode=true&amp;useCursorFetch=true&amp;defaultFetchSize=100?useUnicode=true&amp;characterEncoding=utf-8" />
+                <property name="username" value="gtcom" />
+                <property name="password" value="admin@gt.com1" />
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="com/gintongame/mapping/ProKnowledgeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/BasPersonInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerKnowledgeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/BasOrganizeInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/BugDataMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ProGameInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/OrgProductMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ProGameTypeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/OrgKnowledgeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ProGamePlatformMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/BasBusinessInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ComExecutiveInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ComInvestmentInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ComShareholderMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ComShareholderTeamMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerOrganizeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerWorkInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerEducationInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerSkillInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/OrgEvaInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerWorkInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/PerEducationInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ComChangeInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/BasKnowledgeInfoMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/ProKnowledgeMapper.xml"/>
+        <mapper resource="com/gintongame/mapping/QiYeChaMapper.xml"/>
+    </mappers>
+</configuration>
