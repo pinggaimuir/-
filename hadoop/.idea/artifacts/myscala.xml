@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="myscala">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="myscala.jar">
+      <element id="module-output" name="myscala" />
+    </root>
+  </artifact>
+</component>

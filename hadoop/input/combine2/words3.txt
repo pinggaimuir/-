@@ -1,0 +1,4 @@
+hello world
+hello hadoopgs
+hello 1606
+hello world2

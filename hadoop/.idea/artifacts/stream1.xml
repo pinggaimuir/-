@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="stream1">
+    <output-path>$USER_HOME$/Desktop/</output-path>
+    <root id="archive" name="stream1.jar">
+      <element id="module-output" name="myscala" />
+    </root>
+  </artifact>
+</component>
